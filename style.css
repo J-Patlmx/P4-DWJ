@@ -1,0 +1,35 @@
+body{
+    background: rgb(0,26,36);
+    background: radial-gradient(circle, rgba(0,26,36,1) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%);
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
+}
+h1{
+    color: whitesmoke;
+    text-align: center;
+}
+p{
+    color: aliceblue;
+    text-align: center;
+    padding: 2rem;
+}
+header{
+    display: inline-flex;
+    width: 100%;
+    height: auto;
+}
+#droite{
+    text-align: right;
+    display:inline-flex;
+    width: 60%;
+
+}
+#pro{
+    color: antiquewhite;
+    font-size: 10px; 
+    font-style: italic;
+}
+#avatar{
+    width: 40%;
+    height: 60%;
+    margin: 1rem;
+}
