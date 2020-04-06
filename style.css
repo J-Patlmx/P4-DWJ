@@ -30,20 +30,6 @@ header {
     color: black;
 }
 
-/* .btnConnexion {
-    background-color: black;
-    border-radius: 28px;
-    border: 1px solid black;
-    display: inline-block;
-    cursor: pointer;
-    font-size: 1rem;
-    padding: 4px 38px;
-} */
-
-.btnConnexion a {
-    color: red;
-    text-decoration: none;
-}
 
 #pro {
     color: antiquewhite;
@@ -52,12 +38,11 @@ header {
 
 }
 
-#avatar {
-        position: relative;
-        top: 0;
-        left: 46%;
-     }
-
+img #avatar{
+    position: relative;
+    top: 0;
+    left: 46%;
+ }
 
 /*----------Section index.html---------*/
 section {
@@ -109,11 +94,7 @@ section {
 }
 
 /*-----------PAGE DE CONNEXION-------------*/
-img {
-   position: relative;
-   top: 0;
-   left: 46%;
-}
+
 #imgconnexion{
     position: relative;
     top: 0;
@@ -128,21 +109,32 @@ img {
     width: 15%;
 }
 
-#econnexion a {
+#econnexion label {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
     margin: auto;
     width: 30%;
-    padding: 1%;
+    padding: 0.5%;
+    
 }
 
 .btnConnexionCentrage {
+    margin-bottom: 200px;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
     margin: auto;
     width: 15%;
+    border: 1px lavender solid;
+    margin-top:20px; 
+    box-shadow: 2px 2px 2px 2px lightgrey;
+    border-radius: 24px;
+    -webkit-border-radius: 24px;
+    -moz-border-radius: 24px;
+    background-color: whitesmoke;
+    text-decoration: none;
+    color: black;
 }
 
 /*------MENU ADMIN-------*/
@@ -346,5 +338,6 @@ footer {
     text-align: center;
     color: red;
     font-size: 12px;
+    margin-top: 20px;
 
 }
