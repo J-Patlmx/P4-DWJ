@@ -1,14 +1,48 @@
 body {
-    /* background: rgb(0,26,36); */
-    /* background: radial-gradient(circle, rgba(0,26,36,1) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%); */
-    background-color: lightslategrey;
+    background:  lightslategray url("images/snowBG2.jpg") repeat fixed 0 0;
+    /* background-color: gray;   */
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
 }
-
+h1, h3
+{
+    text-align:center;
+}
 h1 {
-    color: whitesmoke;
+    color: rgb(11, 104, 192);
     text-align: center;
 }
+h3
+{
+    background-color:lightblue;
+    color:grey;
+    font-size:0.9em;
+    margin-bottom:0px;
+}
+.aperçu_chapitre p
+{
+    background-color:lightblue;
+    margin-top:0px;
+   
+}
+.aperçu_chapitre
+{
+  display: inline-block;
+
+}
+.actualite{
+    border: 1px solid lightcyan;
+}
+.com{
+    display: flex;
+    flex-direction: row;
+
+}
+a
+{
+    text-decoration: none;
+    color: blue;
+}
+
 
 p {
     color: black;
@@ -19,29 +53,54 @@ p {
 header {
     display: flex;
     justify-content: space-between;
+    border: 1px  lightblue  inset;
+ 
+}
+#imgheader{
+    max-width: 100%;
+}
+#titreh1{
+    position: absolute;
+    z-index: 2;
+    left: 35%;
+    right: auto;
+    top: 6%;
+    bottom: auto;
+    color: rgba(169, 249, 252, 0.945);
+    text-shadow: 7px 0px 5px lightslategrey ;
+    font-size: 5rem;
+    text-decoration: none;
+    font-variant: small-caps;
+    text-transform: capitalize;
 
 }
-
 .fa-sign-in-alt {
-    position: relative;
+    position: absolute;
     top: 50px;
     right: 50px;
     font-size: 2rem;
     color: black;
+    z-index: 2;
 }
 
 
 #pro {
+    position: absolute;
     color: antiquewhite;
     font-size: 10px;
     font-style: italic;
-
-}
+    left: 36.5%;
+    right: auto;
+    top: 14%;
+    bottom: auto;
+    z-index: 2;
+    }
 
 img #avatar{
     position: relative;
     top: 0;
     left: 46%;
+    z-index: 1000;
  }
 
 /*----------Section index.html---------*/
@@ -51,12 +110,7 @@ section {
 
 }
 
-.billet {
-    display: flex;
-    border: 1px solid black;
-    justify-content: space-around;
 
-}
 
 #titrea {
     color: red;
@@ -332,12 +386,82 @@ li {
 
 /*------PIED DE PAGE-------*/
 
-footer {
+footer  {
     padding-top: 10px;
     border-top: 2px solid whitesmoke;
     text-align: center;
     color: red;
     font-size: 12px;
     margin-top: 20px;
+    bottom: 0%;
+  
+}
+#datecom{ font-size: 10px;}
+#h1admin{
+    background: none;
+    text-align: center;
+    color: royalblue;
+    text-transform: capitalize;
+   
+}
 
+/* formulaire dinscription */
+#h2forminscription{
+    text-align: center;
+}
+#tableauinscription{
+    border: none;
+    background-color: rgba(0, 0, 0, 0);
+}
+#tableauinscription td{
+    border: none;
+    background-color: rgba(0, 0, 0, 0);
+}
+.form_inscription{
+    width: 30%;
+    margin: 30%;
+    margin-top: 0;
+
+}
+
+#tdlabel{
+    width: 20%;
+    align-content: center;
+    background-color: rgba(0, 0, 0, 0);
+    text-align: right;
+    
+}
+#tdinput{
+    width: 20%;
+    align-content: center;
+    background-color: rgba(0, 0, 0, 0);
+    text-align: left;
+    
+}
+
+#racolage{
+    color: lightslategray;
+}
+
+.form_connexion{
+    display:flex;
+    flex-direction: column;
+    white-space: nowrap;
+}
+label{
+    display: flex;
+    flex-direction: column;
+    padding-top: 5px;
+}
+#mdp{
+    display: flex;
+    flex-direction: column;
+}
+.form_commentaire{
+   position: relative;
+   left: 10px;
+}
+#tailleinput{
+    width: 600px;
+    height: 150px;
 }
