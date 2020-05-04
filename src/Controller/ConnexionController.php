@@ -26,18 +26,7 @@ function connexionAction()
             $error  = 'Mauvais password';
         }
     }
-
-    if (isset($_SESSION['admin_user'])) {
-       $page           = [
-            'title'         => 'P4 JEAN Forteroche - Page Administration',
-            'page'          => 'adminprofil'
-
-        ];
-       include_once __DIR__ . '/../../Templates/Frontend/adminprofil.php';
-        
-   
-
-    } else {
+    else {
         $page           = [
             'title'         => 'P4 JEAN Forteroche - Connexion',
             'page'          => 'connexion',

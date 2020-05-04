@@ -1,7 +1,7 @@
 <?php
 session_start(); // on demarre notre session
-require_once('Database.php'); // connexion a la base de donnee via mon include
-
+require_once 'src/Model/Database.php'; // connexion a la base de donnee via mon include
+require_once 'src/Controller/ConnexionController.php';
 //routeur
 if (isset($_POST['connexionadmin'])) //on verifie si le formulaire a bien etait rempli 
 {
@@ -11,7 +11,7 @@ if (isset($_POST['connexionadmin'])) //on verifie si le formulaire a bien etait 
     {
         //manager
         //function infoUser()
-        $requser = $bdd->prepare("SELECT id, username, mot_passe FROM utilisateur  WHERE username = ?"); //on prepare notre requette user (sql)
+        $requser = getBdd()->prepare("SELECT id, username, mot_passe FROM utilisateur  WHERE username = ?"); //on prepare notre requette user (sql)
         $requser->execute(array($pseudoconnect)); //puis on execute notre requette user(sql)
     
         foreach ($requser->fetch() As $userinfo) {

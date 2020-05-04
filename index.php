@@ -31,6 +31,17 @@ if(isset($_GET['action']))
             connexionAction();
         break;
 
+        // case 'adminprofil': 
+        // $adminprofil = 1;
+        //     var_dump($adminprofil);
+
+        //     if(isset($_GET[$adminprofil]))
+        //     {
+        //         $adminprofil = $_GET['adminprofil'];
+        //     }
+        //     connexionAction();
+        // break;
+
         default:
             homePageAction();
     }

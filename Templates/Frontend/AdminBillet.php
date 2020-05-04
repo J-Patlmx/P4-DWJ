@@ -1,12 +1,11 @@
 <?php 
 session_start();//on demarre notre session
-
-require_once 'connex_bdd.php';// j'inclu la connexion à ma base de donneés 
+require_once 'src/Model/Database.php';// j'inclu la connexion à ma base de donneés 
 
 $sql = 'SELECT * FROM chapitre';
 $query = $bdd->prepare($sql);// je prepare ma requete
 $query->execute();// j'execute ma requete
-$result = $query->fetchAll(pdo::FETCH_ASSOC);// je stoke le resultat dans un tableau associatif
+$result = $query->fetchAll(PDO::FETCH_ASSOC);// je stoke le resultat dans un tableau associatif
 
 require_once 'close.php'; 
    
@@ -81,7 +80,7 @@ require_once 'close.php';
                                                     <a href="concentre_toi/delete.php?id=<?= $chapitre['id']?>"><i class="far fa-trash-alt"></i></a>
                                                     <a href="publish.php?id=<?= $chapitre['id']?>"><i class="far fa-check-square"></i></a>
                                                 </td>
-</tr>
+                                            </tr>
                                         <?php
                                     }
                                     ?>
@@ -95,7 +94,7 @@ require_once 'close.php';
             </main>
             
             <footer>
-               <?php require_once('Templates/Frontend/footer.php'); ?>
+               <?= require_once 'Templates/Frontend/footer.php'; ?>
     </footer>
     </body>
 
