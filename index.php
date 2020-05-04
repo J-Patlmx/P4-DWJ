@@ -1,30 +1,61 @@
-<!DOCTYPE html>
-<html lang="fr">
+<?php 
+require_once 'src/Controller/ChapitreController.php';
+require_once 'src/Controller/ConnexionController.php';
 
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width initial-scale=1.0">
-            <link rel=" stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-            integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-            <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
-            integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
-        <link rel="stylesheet" href="style.css">
-        <title>P4 Jean Forteroche</title>
-    </head>
+var_dump($_GET);
 
-    <body>
+if(isset($_GET['action']))
+{
+    switch($_GET['action']) 
+    {
+        case 'listechapitre': 
+            var_dump('afficher page liste chapitre');
+        break;
+
+        case 'chapitre':
+            $id = 1;
+            if(isset($_GET['id']))
+            {
+                $id = $_GET['id'];
+            }
+            chapitreAction($id);
       
-        <header>
-            <?php include('header.php');?>   
-        </header>
+        break;
 
-        <aside>
-            <?php include('news.php');?>
-        </aside>
+        case 'connexion': 
+        $connexion = 1;
+            var_dump($connexion);
 
-         <footer>
-             <?php include('footer.php');?>
-        </footer>
-    </body>
+            if(isset($_GET[$connexion]))
+            {
+                $connexion = $_GET['connexion'];
+            }
+            connexionAction();
+        break;
 
-</html>
+        default:
+            homePageAction();
+    }
+}
+else
+{
+    homePageAction();
+}
+
+/*
+function my_autoloader($class)
+{
+    require_once 'src/Model/' . $class . '.php';
+}
+
+spl_autoload_register('my_autoloader');
+$request = explode('-', $_GET['page']);
+$pageController = 'src/Controller/' . ucfirst($request[0]) . 'Controller.php';
+if (file_exists($pageController)) {
+   
+    require_once $pageController;
+} else {
+    echo $pageController;
+    include '404.php';
+}
+die(); */

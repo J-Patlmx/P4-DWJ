@@ -1,7 +1,6 @@
 body {
-    background:  lightslategray url("images/snowBG2.jpg") repeat fixed 0 0;
-    /* background-color: gray;   */
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
+    background:  lightslategray url("../images/snowBG.jpg") repeat fixed 0 0;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 h1, h3
 {
@@ -20,14 +19,22 @@ h3
 }
 .aperçu_chapitre p
 {
-    background-color:lightblue;
     margin-top:0px;
    
 }
 .aperçu_chapitre
 {
   display: inline-block;
-
+  text-align: center;
+  background-color:rgba(112, 202, 232, 0.961);
+  margin-left: 1%;
+  margin-right: 1%;
+  border: 1px grey solid;
+  margin-bottom: 1%;
+}
+#commentairetitre{
+    padding-top: 1%;
+    margin-left: 1%;
 }
 .actualite{
     border: 1px solid lightcyan;
@@ -453,15 +460,48 @@ label{
     flex-direction: column;
     padding-top: 5px;
 }
-#mdp{
+#password{
     display: flex;
     flex-direction: column;
+    margin-bottom: 20px;
 }
 .form_commentaire{
    position: relative;
-   left: 10px;
+   left: 1%;
 }
 #tailleinput{
     width: 600px;
     height: 150px;
+}
+
+/*------------*/
+#quatrecentquatre{
+  width: 100%;
+    max-height: 90vh;
+}
+.retour{
+    position: absolute;
+    top:250px;
+    
+}
+.retour a{
+    color: #030303;
+}
+
+
+
+/*--------------------*/
+#quatresangquatre{
+    font-size: 14rem;
+    text-align: center;
+    color: #030303;
+    font-style: bold;
+    padding-bottom: 0;
+}
+#chuck{
+    position: relative;
+    top: -200px;
+    color: #030303;
+    text-align: center;
+    font-size: 2rem;
 }

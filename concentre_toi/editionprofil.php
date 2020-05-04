@@ -20,9 +20,9 @@ if(isset($_SESSION['id'])) {//je verifie l id
       header('Location: profil.php?id='.$_SESSION['id']);
    }
    if(isset($_POST['newmdp1']) AND !empty($_POST['newmdp1']) AND isset($_POST['newmdp2']) AND !empty($_POST['newmdp2'])) {
-      $mdp1 = sha1($_POST['newmdp1']);
-      $mdp2 = sha1($_POST['newmdp2']);
-      if($mdp1 == $mdp2) {
+      $mdp1 = password_hash($_POST['newmdp1'], PASSWORD_BCRYPT);
+ 
+      if($_POST['newmdp1'] == $_POST['mdp2']) {
          $insertmdp = $bdd->prepare("UPDATE utilisateur SET mot_passe = ? WHERE id = ?");
          $insertmdp->execute(array($mdp1, $_SESSION['id']));
          header('Location: profil.php?id='.$_SESSION['id']);
@@ -40,7 +40,7 @@ if(isset($_SESSION['id'])) {//je verifie l id
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
             integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
-        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="public/css/style.css">
       <title>Edition de Profil</title>
    </head>
    <body>

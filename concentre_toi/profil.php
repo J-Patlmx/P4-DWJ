@@ -18,7 +18,7 @@ if(isset($_GET['id']) AND $_GET['id'] > 0) {
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
             integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
-        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="public/css/style.css">
         <title>Pofil Admin</title>
    </head>
    <body>
@@ -40,14 +40,14 @@ if(isset($_GET['id']) AND $_GET['id'] > 0) {
             <a href="index.php"><i class="fas fa-sign-out-alt"></i>
         </a>
     <?php
-           echo '<h3 id="question">Que voulais vous faire ?</h3>';
+           echo '<h3 id="question">Que voulez-vous faire ?</h3>';
     ?>
             <div id="choix">
                 <a href="signaler.html" class="pastille adminButton adminCom" rel="...">
                     Gerer les Commentaires signalés
                 </a>
 
-                <a href="AdminBillet.html" class="adminButton adminBillet">Administrer les Billets
+                <a href="AdminBillet.php" class="adminButton adminBillet">Administrer les Billets
 
                 </a>
            
@@ -64,6 +64,9 @@ if(isset($_GET['id']) AND $_GET['id'] > 0) {
          }
          ?>
       </div>
+      <footer>
+      <?php require_once('footer.php'); ?>
+      </footer>
    </body>
 </html>
 <?php   
