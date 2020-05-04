@@ -1,9 +1,9 @@
 <?php
-session_start();
 
+require_once 'src/Controller/ConnexionController.php'
 ?>
 
-
+<link rel="stylesheet" href="Public/css/style.css">
 <h1>CONNEXION ADMINISTRATEUR</h1>
     <h2 id="h2forminscription">votre compte administrateur</h2>
     <div align="center" class="form_connexion">
@@ -20,3 +20,4 @@ session_start();
 
             <input type="submit" name="connexionadmin" value="Connexion" />
         </form>
+    

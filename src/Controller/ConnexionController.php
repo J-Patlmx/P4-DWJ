@@ -4,42 +4,48 @@ require_once 'src/Model/Utilisateur.php';
 function connexionAction()
 {
     $utilisateurManager  = new UtilisateurManager();
-    $utilisateur         = new Utilisateur();
-    $error               = false;
+    $error               = 'erreur';
 
-if (isset($_POST['username']) and !empty($_POST['username'])) 
-{
-    $username        = htmlspecialchars($_POST['username']);
-    $user            = $utilisateurManager->CheckUserlogin($username);
-    if ($user) {
-        $access  = password_verify($_POST['password'], $user->mot_passe);
-        if ($access) {
-            $_SESSION['admin_user'] = $user;
-        } else {
-            $error = true;
+    if (isset($_POST['username']) and !empty($_POST['username'])) 
+    {
+        $username        = htmlspecialchars($_POST['username']);
+        $user            = $utilisateurManager->CheckUserlogin($username);
+        if ($user) 
+        {
+            $access  = password_verify($_POST['password'], $user->mot_passe);
+            if ($access) 
+            {
+                $_SESSION['admin_user'] = $user;
+            } else 
+            {
+                $error = 'Mauvais utilisateur';
+            }
+        } 
+        else 
+        {
+            $error  = 'Mauvais password';
         }
-    } else {
-        $error  = true;
     }
-}
 
-if (isset($_SESSION['admin_user'])) {
-    $adminpofil           = [
-        'title'         => 'P4 JEAN Forteroche - Page Administration',
-        'page'          => 'adminprofil'
+    if (isset($_SESSION['admin_user'])) {
+       $page           = [
+            'title'         => 'P4 JEAN Forteroche - Page Administration',
+            'page'          => 'adminprofil'
 
-    ];
-} else {
-    $page           = [
-        'title'         => 'P4 JEAN Forteroche - Connexion',
-        'page'          => 'connexion',
-        'error'         => $error
-    ];
-}
+        ];
+       include_once __DIR__ . '/../../Templates/Frontend/adminprofil.php';
+        
+   
 
-
-include_once __DIR__ . '/../../Templates/Frontend/connexion.php';
-
+    } else {
+        $page           = [
+            'title'         => 'P4 JEAN Forteroche - Connexion',
+            'page'          => 'connexion',
+            'error'         => $error
+        ];
+    }
+    include_once __DIR__ . '/../../Templates/Frontend/connexion.php';
+    
 }
 
 

@@ -2,8 +2,6 @@
 require_once 'src/Controller/ChapitreController.php';
 require_once 'src/Controller/ConnexionController.php';
 
-var_dump($_GET);
-
 if(isset($_GET['action']))
 {
     switch($_GET['action']) 
