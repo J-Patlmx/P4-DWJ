@@ -35,4 +35,11 @@ class ChapitreManager
         $req->bindValue(':date_creation',$chapitre->getCreationDate());
         $req->execute();
     }
+    public function findAllAdminBillet()
+    {
+        $req = $this->bdd->getBdd()->query('SELECT id, titre, contenu, publication, DATE_FORMAT(date_creation, \'%d/%m/%Y à %Hh%imin%ss\') AS date_creation_fr FROM chapitre ORDER BY date_creation DESC');
+        $resultat= $req->fetchAll();
+        return $resultat;
+    }
+    
 }

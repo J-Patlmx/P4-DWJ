@@ -1,10 +1,14 @@
 <?php 
 require_once 'src/Controller/ChapitreController.php';
 require_once 'src/Controller/ConnexionController.php';
+require_once 'src/Controller/AdminController.php';
+session_start();
 
 if(isset($_GET['action']))
 {
+    var_dump($_GET['action']);
     switch($_GET['action']) 
+    
     {
         case 'listechapitre': 
             var_dump('afficher page liste chapitre');
@@ -20,27 +24,60 @@ if(isset($_GET['action']))
       
         break;
 
-        case 'connexion': 
-        $connexion = 1;
-            var_dump($connexion);
+        case 'addCommentaire':
+            
 
-            if(isset($_GET[$connexion]))
-            {
-                $connexion = $_GET['connexion'];
-            }
-            connexionAction();
+            addCommentaireAction();
         break;
 
-        // case 'adminprofil': 
-        // $adminprofil = 1;
-        //     var_dump($adminprofil);
+        case 'connexion':  // doit elle etre remplacer par loginAction ?
+   
+            var_dump('Route plus utiliser Connexion');
 
-        //     if(isset($_GET[$adminprofil]))
-        //     {
-        //         $adminprofil = $_GET['adminprofil'];
-        //     }
-        //     connexionAction();
-        // break;
+    
+        break;
+        
+        case 'logout':
+            
+
+            
+           logoutAction();
+        break;
+
+        case 'login': 
+           
+            var_dump('Route login');
+            
+           loginAction($_POST);
+        break;
+
+        case 'dashboard': 
+            
+                var_dump('Route dashboard');
+            
+           dashboardAction();
+        break;
+
+        case 'adminProfil': 
+        var_dump(" Route admin profil");
+
+        
+        //dashboardAction();
+        break;
+
+        case 'adminBillet': 
+        var_dump(" Route admin Billet");
+
+        dashboardBilletAction();
+       
+        break;
+
+        case 'adminSignaler': 
+        var_dump(" Route admin commentaire");
+
+        dashboardCommentaireAction($id);
+       
+        break;
 
         default:
             homePageAction();
@@ -50,21 +87,3 @@ else
 {
     homePageAction();
 }
-
-/*
-function my_autoloader($class)
-{
-    require_once 'src/Model/' . $class . '.php';
-}
-
-spl_autoload_register('my_autoloader');
-$request = explode('-', $_GET['page']);
-$pageController = 'src/Controller/' . ucfirst($request[0]) . 'Controller.php';
-if (file_exists($pageController)) {
-   
-    require_once $pageController;
-} else {
-    echo $pageController;
-    include '404.php';
-}
-die(); */

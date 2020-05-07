@@ -89,7 +89,14 @@ header {
     color: black;
     z-index: 2;
 }
-
+.fa-sign-out-alt{
+    position: absolute;
+    top: 50px;
+    right: 50px;
+    font-size: 2rem;
+    color: black;
+    z-index: 2;
+}
 
 #pro {
     position: absolute;

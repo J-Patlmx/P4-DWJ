@@ -13,7 +13,7 @@ function homePageAction()
             'listechapitre' => $chapitreManager->findAll()
         ];
 
-    include_once __DIR__.'/../../Templates/Frontend/index.php';
+    include_once __DIR__.'/../../Templates/Frontend/index.html.php';
 }
 function chapitreAction($id)
 {
@@ -35,7 +35,7 @@ function chapitreAction($id)
             'title'         => 'P4 JEAN Forteroche - '.$chapitre->titre,
             'page'          => 'chapitre'
         ];
-        include_once __DIR__.'/../../Templates/Frontend/index.php';
+        include_once __DIR__.'/../../Templates/Frontend/index.html.php';
     } else
     {
         header('location:404.php');

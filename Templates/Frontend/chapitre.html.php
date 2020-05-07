@@ -18,7 +18,7 @@
 
 
         <h2 id="commentairetitre">Commentaires</h2>
-        <form class="form_commentaire" id="newcomment" action="listechapitre.php?action=add($commentaire)&amp;id=?" method="post">
+        <form class="form_commentaire" id="newcomment" action="index.php?action=addcommentaire&amp;id=<?= $chapitre->id?>" method="post">
       <div>
           <label for="pseudo">Auteur</label>
           <input type="text" id="pseudo" name="pseudo" />

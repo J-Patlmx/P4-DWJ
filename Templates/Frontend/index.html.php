@@ -15,15 +15,15 @@
     <body>
       
         <header>
-            <?php require_once 'Templates/Frontend/header.php';?>   
+            <?php require_once 'Templates/Frontend/header.html.php';?>   
         </header>
 
         <section>
-            <?php require_once __DIR__.'/'.$page['page'].'.php';?>
+            <?php require_once __DIR__.'/'.$page['page'].'.html.php';?>
         </section>
 
          <footer>
-             <?php require_once 'Templates/Frontend/footer.php';?>
+             <?php require_once 'Templates/Frontend/footer.html.php';?>
         </footer>
     </body>
 

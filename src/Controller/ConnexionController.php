@@ -1,58 +1,77 @@
 <?php
 require_once 'src/Model/UtilisateurManager.php';
 require_once 'src/Model/Utilisateur.php';
-function connexionAction()
+/*
+function connexionAction($post)
 {
     $utilisateurManager  = new UtilisateurManager();
     $error               = 'erreur';
 
-    if (isset($_POST['username']) and !empty($_POST['username'])) 
-    {
-        $username        = htmlspecialchars($_POST['username']);
+    if (isset($post['username']) and !empty($post['username'])) {
+        $username        = htmlspecialchars($post['username']);
         $user            = $utilisateurManager->CheckUserlogin($username);
-        if ($user) 
-        {
-            $access  = password_verify($_POST['password'], $user->mot_passe);
-            if ($access) 
-            {
+        if ($user) {
+            $access  = password_verify($post['password'], $user->mot_passe);
+            if ($access) {
                 $_SESSION['admin_user'] = $user;
-            } else 
-            {
+                header('location:Templates/Backend/dashboard.html.php');
+            } else {
                 $error = 'Mauvais utilisateur';
             }
-        } 
-        else 
-        {
+        } else {
             $error  = 'Mauvais password';
         }
-    }
-    else {
+    } else {
         $page           = [
             'title'         => 'P4 JEAN Forteroche - Connexion',
             'page'          => 'connexion',
             'error'         => $error
         ];
     }
-    include_once __DIR__ . '/../../Templates/Frontend/connexion.php';
-    
+    include_once __DIR__ . '/../../Templates/Frontend/login.html.php';
+}
+*/
+function logoutAction()
+{
+    session_start();
+    $_SESSION = array();
+    session_destroy();
+    header("Location:index.php");
+    exit;
 }
 
+function loginAction($post)
+{
+    if (isset($_SESSION['admin_user'])) {
+    
+        header('location:index.php?action=dashboard');
+        exit;
+    } else {
+        $utilisateurManager  = new UtilisateurManager();
+        $error               = 'erreur';
 
-
-//TODO: verifier le formumlaire de connexion 
-// lui passser la variable adminUser si les users info son bonne
-
-
-
-
-
-
-
-        // $utilisateur = new utilisateur();
-        // echo "<pre>"; 
-        // $utilisateur->setEmail('');
-        // $utilisateur->setMotPasse('');
-        // $utilisateur->setUsername('');
-        //  var_dump($utilisateur);
-        // $manager = new utilisateurManager();
-        // $manager->add($utilisateur);
+        if (isset($post['username']) and !empty($post['username'])) {
+            $username        = htmlspecialchars($post['username']);
+            $user            = $utilisateurManager->CheckUserlogin($username);
+            if ($user) {
+                $access  = password_verify($post['password'], $user->mot_passe);
+                if ($access) {
+                    $_SESSION['admin_user'] = $user;
+                    header('location:index.php?action=dashboard');
+                    exit;
+                } else {
+                    $error = 'Mauvais utilisateur';
+                }
+            } else {
+                $error  = 'Mauvais password';
+            }
+        } else {
+            $page           = [
+                'title'         => 'P4 JEAN Forteroche - Connexion',
+                'page'          => 'connexion',
+                'error'         => $error
+            ];
+        }
+        include_once __DIR__ . '/../../Templates/Frontend/login.html.php';
+    }
+}

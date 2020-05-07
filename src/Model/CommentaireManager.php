@@ -30,4 +30,13 @@ class CommentaireManager
         $req->bindValue(':date_commentaire',$commentaire->getCreationDate());
         $req->execute();
     }
+
+    public function findAllAdminCommentaire($id)
+    {
+        $req = $this->bdd->getBdd()->prepare('SELECT id, id_chapitre, contenu_commentaire, pseudo, signaler,date_commentaire FROM commentaire WHERE id_chapitre = :id');
+        $req->bindValue(':id', $id);
+        $req->execute();
+        $result= $req->fetchAll();
+        return $result;
+    }
 }

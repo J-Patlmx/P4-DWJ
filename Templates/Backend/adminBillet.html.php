@@ -1,16 +1,3 @@
-<?php 
-session_start();//on demarre notre session
-require_once 'src/Model/Database.php';// j'inclu la connexion à ma base de donneés 
-
-$sql = 'SELECT * FROM chapitre';
-$query = $bdd->prepare($sql);// je prepare ma requete
-$query->execute();// j'execute ma requete
-$result = $query->fetchAll(PDO::FETCH_ASSOC);// je stoke le resultat dans un tableau associatif
-
-require_once 'close.php'; 
-   
-?>
-
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -21,7 +8,7 @@ require_once 'close.php';
             integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
             <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
             integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
-        <link rel="stylesheet" href="public/css/styles.css">
+        <link rel="stylesheet" href="public/css/style.css">
         <title>Administration Billets</title>
     </head>
 
@@ -29,9 +16,10 @@ require_once 'close.php';
 
         <h1>Administrer les Billets</h1>
         <div>
-            <a href="index.php">
+            <a href="index.php?action=logout">
                 <i class="fascrud fas fa-sign-out-alt"></i>
             </a>
+            <a href="index.php?action=dashboard">Bureau</a>
         </div>
             
          <h1> Gerer les chapitres</h1>
@@ -72,13 +60,13 @@ require_once 'close.php';
                                                 <!-- <td><?= $chapitre['id']?></td> -->
                                                 <td><?= $chapitre['titre']?></td>
                                                <td><?= "Pour lire ce chapitre cliqué sur lire la suite !"?></td>
-                                                <td><?= $chapitre['date_creation']?></td>
+                                                <td><?= $chapitre['date_creation_fr']?></td>
                                                 <td><?= $chapitre['publication']?></td>
                                                 <td>
-                                                    <a href="lirelasuite.php?id=<?= $chapitre['id']?>"><i class="fas fa-book-open"></i></a>
-                                                    <a href="update.php?id=<?= $chapitre['id']?>"><i class="far fa-edit"></i></a>
-                                                    <a href="concentre_toi/delete.php?id=<?= $chapitre['id']?>"><i class="far fa-trash-alt"></i></a>
-                                                    <a href="publish.php?id=<?= $chapitre['id']?>"><i class="far fa-check-square"></i></a>
+                                                    <a href="index.php?action=chapitre&id=<?= $chapitre['id']?>"><i class="fas fa-book-open"></i></a>
+                                                    <a href="index.php?action=chapitre&id<?= $chapitre['id']?>"><i class="far fa-edit"></i></a>
+                                                    <a href="index.php?action=chapitre&id<?= $chapitre['id']?>"><i class="far fa-trash-alt"></i></a>
+                                                    <a href="index.php?action=chapitre&id=<?= $chapitre['id']?>"><i class="far fa-check-square"></i></a>
                                                 </td>
                                             </tr>
                                         <?php
@@ -93,9 +81,9 @@ require_once 'close.php';
                 <a href="add.php" class="btn btn-primary"> Ajouter un Chapitre</a>
             </main>
             
-            <footer>
-               <?= require_once 'Templates/Frontend/footer.php'; ?>
-    </footer>
+       
+               <?php include_once ('Templates/Frontend/footer.html.php'); ?>
+   
     </body>
 
 </html>

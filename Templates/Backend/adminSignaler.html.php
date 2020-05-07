@@ -16,11 +16,11 @@
     <body>
         <h1>Gerer les Commantaires signaler</h1>
         <div>
-            <a href="index.php">
+            <a href="index.php?action=logout">
                 <i class="fas fa-sign-out-alt"></i>
             </a>
         </div>
-
+        <a href="index.php?action=dashboard">Bureau</a>
         <table>
             <thead>
                 <tr>
@@ -93,6 +93,6 @@
             </tbody>
         </table>
     
-        <footer>Blog de Jean Forteroche par l'agence du Fou</footer>
+        <?php require_once 'Templates/Frontend/footer.html.php';?>
     </body>
 </html>
