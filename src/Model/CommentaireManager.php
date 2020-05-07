@@ -39,4 +39,17 @@ class CommentaireManager
         $result= $req->fetchAll();
         return $result;
     }
+
+    public function addCommentaireAction($id_chapitre, $pseudo, $contenu_commentaire)
+    {
+            $req = $this->bdd->getBdd()->prepare('INSERT INTO `commentaire`(`id`, `pseudo`, `contenu_commentaire`, `signaler`, `date_commentaire`, `id_chapitre`) VALUES(?, ?, ?,?, ?, NOW())');
+           // $result = $req->execute($id_chapitre, $pseudo, $contenu_commentaire);
+            $result = $req->execute($id_chapitre, $pseudo, $contenu_commentaire);
+            return $result ;
+        //     $addComments = getBdd()-> prepare('INSERT INTO `commentaire`(`id`, `pseudo`, `contenu_commentaire`, `signaler`, `date_commentaire`, `id_chapitre`) VALUES(?, ?, ?, NOW())');
+        //     $affectedLines = $addComments->execute(array());
+
+        //     return $affectedLines;
+    }
+
 }
