@@ -1,36 +1,30 @@
 <?php
 require_once 'src/Model/CommentaireManager.php';
-function addCommentaireAction($id_chapitre, $pseudo, $contenu_commentaire)
+function addCommentaireAction($idChapitre, $pseudo, $contenuCommentaire)
 {
-
     $commentaireManager = new CommentaireManager();
+    $result = $commentaireManager->addCommentaireAction($idChapitre, $pseudo, $contenuCommentaire);
+    // if(isset($_POST['form_commentaire']))
+    // {
+    //     if (!empty($_POST['pseudo']) && !empty($_POST['contenu_commentaire'])){
+    //         $pseudo = htmlspecialchars($_POST['pseudo']);// je declare ma variable pseudo avec la protection htmlspecialchars
+    //         $contenuCommentaire = htmlspecialchars($_POST['contenu_commentaire']);
+    //         $pseudolength = strlen($pseudo);
 
-    $result = $commentaireManager->addCommentaireAction($id_chapitre, $pseudo, $contenu_commentaire);
-  
-    if ($result === false) 
-    {
-         echo 'ca marche pas';
-        //throw new Exception('Impossible d\'ajouter le commentaire !');
-    }
-    else 
-    {
-        header('Location: index.php?action=chapitre&id=' . $id_chapitre);
-    }
-
-
-
-
-
-  /*  if (isset($_POST['pseudo']) && isset($_POST['contenu_commentaire']))
-    {
-        $commentaireManager  = new CommentaireManager();
-        $result = $commentaireManager->addCommentaireAction();
-        var_dump('commentaire ajouter ');
-    
-        exit;
-    } else {
-         echo 'erreur';
-        
-    }*/
- 
+    //         if($pseudolength <= 255)
+    //         {
+                if ($result === false) 
+                {
+                    echo "Votre commentaire n'a pas pus être ajouté";
+                    header('Location: index.php?action=chapitre&id=' . $idChapitre);
+                    exit;
+                }else 
+                {
+                    header('Location: index.php?action=chapitre&id=' . $idChapitre);
+                    exit;
+                }
+                
+           // }
+        //}
+    //}
 }

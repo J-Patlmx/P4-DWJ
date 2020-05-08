@@ -30,7 +30,6 @@
                         <?php if(!empty($_SESSION['erreur'])){
                                   echo '<div class="alert alert-danger" role="alert">' . $_SESSION['erreur'] . '</div>';
                                   $_SESSION['erreur'] = "";
-                                 
                                 } 
                         ?>
                         <?php if(!empty($_SESSION['message'])){
@@ -81,9 +80,9 @@
                 <a href="add.php" class="btn btn-primary"> Ajouter un Chapitre</a>
             </main>
             
-       
+       <footer>
                <?php include_once ('Templates/Frontend/footer.html.php'); ?>
-   
+       </footer>
     </body>
 
 </html>

@@ -40,16 +40,17 @@ class CommentaireManager
         return $result;
     }
 
-    public function addCommentaireAction($id_chapitre, $pseudo, $contenu_commentaire)
+    public function addCommentaireAction($idChapitre, $pseudo, $contenuCommentaire)
     {
-            $req = $this->bdd->getBdd()->prepare('INSERT INTO `commentaire`(`id`, `pseudo`, `contenu_commentaire`, `signaler`, `date_commentaire`, `id_chapitre`) VALUES(?, ?, ?,?, ?, NOW())');
-           // $result = $req->execute($id_chapitre, $pseudo, $contenu_commentaire);
-            $result = $req->execute($id_chapitre, $pseudo, $contenu_commentaire);
+        $req = $this->bdd->getBdd()->prepare('INSERT INTO commentaire (`pseudo`, `contenu_commentaire`, `signaler`, `date_commentaire`, `id_chapitre`) 
+                                            VALUES (:pseudo, :contenuCommentaire, 0, 
+                                            NOW(), :idChapitre)');
+            $result = $req->execute([
+                'idChapitre' => $idChapitre, 
+                'pseudo' => $pseudo, 
+                'contenuCommentaire' => $contenuCommentaire
+            ]);
             return $result ;
-        //     $addComments = getBdd()-> prepare('INSERT INTO `commentaire`(`id`, `pseudo`, `contenu_commentaire`, `signaler`, `date_commentaire`, `id_chapitre`) VALUES(?, ?, ?, NOW())');
-        //     $affectedLines = $addComments->execute(array());
-
-        //     return $affectedLines;
     }
 
 }
