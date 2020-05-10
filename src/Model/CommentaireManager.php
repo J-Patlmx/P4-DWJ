@@ -52,5 +52,18 @@ class CommentaireManager
             ]);
             return $result ;
     }
-
+/*------------------------------------------------------------------------*/
+    public function dashboardCommentaireSignalerAction($pseudo, $contenuCommentaire, $signaler)
+    {
+        $req = $this->bdd->getBdd()->prepare('SELECT `pseudo`, `contenu_commentaire`, `signaler`
+                                              FROM commentaire 
+                                              WHERE signaler = 1');
+    
+        $result=$req->execute([ 
+            'pseudo'             => $pseudo, 
+            'contenu_commentaire' => $contenuCommentaire,
+            'signaler'           => $signaler
+        ]);
+        return $result;
+    }
 }
