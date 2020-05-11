@@ -11,8 +11,8 @@ if (isset($_GET['action'])) {
         case 'listechapitre':
             var_dump('afficher page liste chapitre');
             break;
-/*------------------------------ FRONT OFFICE ------------------------------*/
-/*---------- chapitre ----------*/
+            /*------------------------------------------------------------ FRONT OFFICE ------------------------------------------------------------*/
+            /*---------- chapitre ----------*/
         case 'chapitre':
             $id = 1;
             if (isset($_GET['id'])) {
@@ -20,55 +20,82 @@ if (isset($_GET['action'])) {
             }
             chapitreAction($id);
             break;
-/*---------- Ajout de commentaire ----------*/
+
+            /*---------- Ajout de commentaire ----------*/
         case 'addCommentaire':
             var_dump('route de lajout de commentaire');
+
             if (isset($_GET['idChapitre']) && $_GET['idChapitre'] > 0) {
                 if (!empty($_POST['pseudo']) && !empty($_POST['contenu_commentaire'])) { }
             }
             addCommentaireAction($_GET['id'], $_POST['pseudo'], $_POST['contenu_commentaire']);
             break;
-/*------------------------------ PARTIE CONNEXION ------------------------------*/
-/*---------- Connexion ----------*/
+
+            /*---------- Signaler un Commentaire ----------*/
+        case 'signalerUnCommentaire':
+            var_dump(" Signaler un commentaire");
+
+            signalerUnCommentaireAction($_GET['id']);
+            break;
+            /*------------------------------------------------------------ PARTIE CONNEXION ------------------------------------------------------------*/
+            /*---------- Connexion ----------*/
         case 'login':
             var_dump('Route login');
 
             loginAction($_POST);
             break;
-/*---------- Deconnexion ----------*/
+
+            /*---------- Deconnexion ----------*/
         case 'logout':
             var_dump('route de la deconnexion');
 
             logoutAction();
             break;
 
-
-/*------------------------------ BACK OFFICE ------------------------------*/
-/*---------- Dashboard ----------*/
+            /*------------------------------------------------------------ BACK OFFICE ------------------------------------------------------------*/
+            /*---------- Dashboard ----------*/
         case 'dashboard':
             var_dump('Route dashboard');
 
             dashboardAction();
             break;
 
-/*---------- Gestion des commentaire Signaler ----------*/
-        case 'adminCommentaireSignaler':
-            var_dump(" Route admin commentaire Signaler");
-
-            dashboardCommentaireSignalerAction($pseudo, $contenuCommentaire, $signaler);
-            break;
-        case 'adminSignaler':
+        case 'adminListeCommentaireSignaler':
             var_dump(" Route admin commentaire");
 
-            dashboardCommentaireAction($id);
+            dashboardCommentaireAction();
             break;
 
-/*---------- Gestion des Billets ----------*/
+            /*------------------------------ Gestion COMMENTAIRE SIGNALER ------------------------------*/
+            /*---------- Validation Commentaires Signaler ----------*/
+        case 'adminValiderCommentaire':
+            var_dump(" Route admin Billet");
+
+            dashboardCommentaireValiderAction($_GET['id']);
+            break;
+
+            /*---------- Suppression Commentaires Signaler ----------*/
+        case 'adminSupprimerCommentaire':
+            var_dump(" Route admin Billet");
+
+            dashboardCommentaireSupprimerAction($_GET['id']);
+            break;
+
+      /*---------- affichage nombre de Commentaires Signaler dans le dashboard ----------*/
+       /* case 'adminAfficherNombreCommentaireSignaler':
+            var_dump(" Afficher le Nombre de Commentaire Signaler");
+
+            dashboardCommentaireAction();
+            break; */
+            
+            /*---------- Gestion des Billets ----------*/
         case 'adminBillet':
             var_dump(" Route admin Billet");
 
             dashboardBilletAction();
             break;
+
+
         default:
             homePageAction();
     }

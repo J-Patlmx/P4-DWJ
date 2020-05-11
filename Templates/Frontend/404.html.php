@@ -7,4 +7,6 @@
 
 <button type="submit" class="retour btn btn-primary" placeholder="page d'accueil" ><a href="chapitre">Page d'accueil<a></button>
 
-<?php require_once 'Templates/Frontend/footer.html.php';?>
+<footer>
+    <?php require_once 'Templates/Frontend/footer.html.php';?>
+    </footer>

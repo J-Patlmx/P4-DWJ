@@ -16,7 +16,7 @@ if (isset($_SESSION['admin_user'])) {
             <a href="index.php?action=logout"><i class="fas fa-sign-out-alt"></i></a>
             <?= '<h3 id="question">Que voulez-vous faire ?</h3>'; ?>
             <div id="choix">
-                <a href="index.php?action=adminSignaler" class="pastille adminButton adminCom" rel="...">Gerer les Commentaires signalés</a>
+                <a href="index.php?action=adminListeCommentaireSignaler" class="pastille adminButton adminCom" rel=" <?= var_dump('...'); ?>">Gerer les Commentaires signalés</a>
                 <a href="index.php?action=adminBillet" class="adminButton adminBillet">Administrer les Billets</a>
         </section>
         <br />
@@ -26,4 +26,6 @@ if (isset($_SESSION['admin_user'])) {
 <?php
 }
 ?>
+<footer>
 <?php require_once 'Templates/Frontend/footer.html.php';?>
+</footer>

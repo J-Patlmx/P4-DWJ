@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -13,102 +12,55 @@
 </head>
 
 <body>
-    <?php //on boucle sur la variable result
-    foreach ($result as $adminCommentaireSignaler) {
-        var_dump($adminCommentaireSignaler).'il ya bien un commentaire de signaler';
-        ?>
-        <table>
-            <thead>
+    <h1>Gerer les Commantaires signaler</h1>
+    <div>
+        <a href="index.php?action=logout">
+            <i class="fas fa-sign-out-alt"></i>
+        </a>
+    </div>
+    <a href="index.php?action=dashboard">Bureau</a>
+    <table>
+
+        <thead>
+
+            <tr>
+                <th>Contenu Commentaire</th>
+                <th>Pseudo</th>
+                <th>Valider</th>
+                <th>Supprimer</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php //on boucle sur la variable result
+            foreach ($commentaires as $adminCommentaireSignaler) {
+                ?>
                 <tr>
-                    <td><?= $adminCommentaireSignaler['pseudo'] ?></td>
-                    <td><?= $adminCommentaireSignaler['contenu_commentaire'] ?></td>
-                    <td><?= $adminCommentaireSignaler['signaler'] ?></td>
+                    <td>
+                        <a class="Commantaires"><?= $adminCommentaireSignaler['contenu_commentaire'] ?></a>
+                    </td>
+                    <td>
+                        <a class="Pseudo"><?= $adminCommentaireSignaler['pseudo'] ?></a>
+                    </td>
+
+                    <td>
+                        <button>
+                            <a href="index.php?action=adminValiderCommentaire&id=<?= $adminCommentaireSignaler['id'] ?>"><i class="fas fa-thumbs-up"></i></a>
+                        </button>
+                    </td>
+                    <td>
+                        <button>
+                            <a href="index.php?action=adminSupprimerCommentaire&id=<?= $adminCommentaireSignaler['id'] ?>"><i class="fas fa-thumbs-down"></i></a>
+                        </button>
+                    </td>
                 </tr>
             <?php
             }
             ?>
-            </thead>
-            <tbody>
-                <h1>Gerer les Commantaires signaler</h1>
-                <div>
-                    <a href="index.php?action=logout">
-                        <i class="fas fa-sign-out-alt"></i>
-                    </a>
-                </div>
-                <a href="index.php?action=dashboard">Bureau</a>
-                <table>
-                    <thead>
-                        <tr>
-                            <th colspan="1">Gestion des Signalements</th>
-                            <td>Valider</td>
-                            <td>Supprimer</td>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>
-                                <a class="Commantaires">ICI LE COMMENTAIRE SIGNALER</a>
-                            </td>
-                            <td>
-                                <button>
-                                    <i class="fas fa-thumbs-up"></i>
-                                </button>
-                            </td>
-                            <td>
-                                <button>
-                                    <i class="fas fa-thumbs-down"></i>
-                                </button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <a class="Commantaires">ICI LE COMMENTAIRE SIGNALER</a>
-                            </td>
-                            <td>
-                                <button>
-                                    <i class="fas fa-thumbs-up"></i>
-                                </button>
-                            </td>
-                            <td>
-                                <button>
-                                    <i class="fas fa-thumbs-down"></i>
-                                </button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <a class="Commantaires">ICI LE COMMENTAIRE SIGNALER</a>
-                            </td>
-                            <td>
-                                <button>
-                                    <i class="fas fa-thumbs-up"></i>
-                                </button>
-                            </td>
-                            <td>
-                                <button>
-                                    <i class="fas fa-thumbs-down"></i>
-                                </button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <a class="Commantaires">ICI LE COMMENTAIRE SIGNALER</a>
-                            </td>
-                            <td>
-                                <button>
-                                    <i class="fas fa-thumbs-up"></i>
-                                </button>
-                            </td>
-                            <td>
-                                <button>
-                                    <i class="fas fa-thumbs-down"></i>
-                                </button>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-
-                <?php require_once 'Templates/Frontend/footer.html.php'; ?>
+        </tbody>
+    </table>
+    <footer>
+        <?php require_once 'Templates/Frontend/footer.html.php'; ?>
+    </footer>
 </body>
 
 </html>

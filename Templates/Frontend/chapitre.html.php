@@ -37,9 +37,10 @@
             <div class="com">
                 <p><strong><?php echo htmlspecialchars($commentaire['pseudo']); ?></strong><strong id="datecom"> le <?php echo $commentaire['date_commentaire']; ?></strong></p>
                 <p><?php echo nl2br(htmlspecialchars($commentaire['contenu_commentaire'])); ?></p>
-                <p><i type="submit" class="signalercom fas fa-thumbs-down"></i></p>
+                <button>
+                    <a href="index.php?action=signalerUnCommentaire&id=<?= $commentaire['id'] ?>"><i class="fas fa-thumbs-down"></i></a>
+                </button>
 
-                <br />
             </div>
         <?php
         } // Fin de la boucle des commentaires

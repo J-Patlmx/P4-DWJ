@@ -1,7 +1,5 @@
-exemple page de co 
+requet sql pour la recuperation
 
-url -> localhost/connexion 
-    1 src/Controller/ConnexionController.php
-    1 Template/Frontend/Connexion.php
-    
 
+SELECT COUNT(*) AS commentaireSignale FROM commentaire WHERE signaler='1'
+dashboardAfficherNombreCommentaireSignalerAction();

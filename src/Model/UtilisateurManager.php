@@ -44,4 +44,6 @@ class UtilisateurManager
         $req->execute();
     }
 }
+
+
 //TODO: function delete ne pas pouvoir supprimer le SUPERADMIN, si tu edit le super admin impossible de changer le role

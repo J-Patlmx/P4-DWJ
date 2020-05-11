@@ -401,14 +401,12 @@ li {
 /*------PIED DE PAGE-------*/
 
 footer  {
-    padding-top: 10px;
     border-top: 2px solid whitesmoke;
     text-align: center;
     color: red;
     font-size: 12px;
-    margin-top: 20px;
-    bottom: 0%;
-  
+    bottom: 0;
+    position: fixed;
 }
 #datecom{ font-size: 10px;}
 #h1admin{

@@ -9,10 +9,12 @@ class CommentaireManager
     {
         $this->bdd = new Database();
     }
-    
+/*----------------------------REQUETE RECHERCHE DE TOUT LES COMMENTAIRES par ID--------------------------------------------*/ 
     public function findAll($id)
     {
-        $req = $this->bdd->getBdd()->prepare('SELECT id, id_chapitre, contenu_commentaire, pseudo, signaler,date_commentaire FROM commentaire WHERE id_chapitre = :id');
+        $req = $this->bdd->getBdd()->prepare('SELECT id, id_chapitre, contenu_commentaire, pseudo, signaler,date_commentaire 
+                                              FROM commentaire 
+                                              WHERE id_chapitre = :id');
         $req->bindValue(':id', $id);
         $req->execute();
         $resultat= $req->fetchAll();
@@ -20,31 +22,34 @@ class CommentaireManager
     }
   
    
-    public function add($commentaire)
-    {
-        $req = $this->bdd->getBdd()->prepare('INSERT INTO commentaire SET id_chapitre = :id_chapitre,pseudo = :pseudo, contenu_commentaire = :contenu_commentaire, signaler = :signaler, date_commentaire = :date_commentaire ');
-        $req->bindValue(':pseudo',$commentaire->getPseudo(), PDO::PARAM_STR);
-        $req->bindValue(':id_chapitre', $commentaire->getIdChapitre());
-        $req->bindValue(':contenu_commentaire',$commentaire->getCommentaryContent(), PDO::PARAM_STR);
-        $req->bindValue(':signaler',$commentaire->getSignaler(), PDO::PARAM_BOOL);
-        $req->bindValue(':date_commentaire',$commentaire->getCreationDate());
-        $req->execute();
-    }
-
+    // public function add($commentaire)
+    // {
+    //     $req = $this->bdd->getBdd()->prepare('INSERT INTO commentaire 
+    //                                           SET id_chapitre = :id_chapitre,pseudo = :pseudo, contenu_commentaire = :contenu_commentaire, signaler = :signaler, date_commentaire = :date_commentaire ');
+    //     $req->bindValue(':pseudo',$commentaire->getPseudo(), PDO::PARAM_STR);
+    //     $req->bindValue(':id_chapitre', $commentaire->getIdChapitre());
+    //     $req->bindValue(':contenu_commentaire',$commentaire->getCommentaryContent(), PDO::PARAM_STR);
+    //     $req->bindValue(':signaler',$commentaire->getSignaler(), PDO::PARAM_BOOL);
+    //     $req->bindValue(':date_commentaire',$commentaire->getCreationDate());
+    //     $req->execute();
+    // }
+/*----------------------------REQUETE RECHERCHE DE TOUT LES COMMENTAIRES Pour la partie admin--------------------------------------------*/
     public function findAllAdminCommentaire($id)
     {
-        $req = $this->bdd->getBdd()->prepare('SELECT id, id_chapitre, contenu_commentaire, pseudo, signaler,date_commentaire FROM commentaire WHERE id_chapitre = :id');
+        $req = $this->bdd->getBdd()->prepare('SELECT id, id_chapitre, contenu_commentaire, pseudo, signaler,date_commentaire 
+                                              FROM commentaire 
+                                              WHERE id_chapitre = :id');
         $req->bindValue(':id', $id);
         $req->execute();
         $result= $req->fetchAll();
         return $result;
     }
-
+/*----------------------------REQUETE AJOUT DE COMMENTAIRE--------------------------------------------*/
     public function addCommentaireAction($idChapitre, $pseudo, $contenuCommentaire)
     {
         $req = $this->bdd->getBdd()->prepare('INSERT INTO commentaire (`pseudo`, `contenu_commentaire`, `signaler`, `date_commentaire`, `id_chapitre`) 
-                                            VALUES (:pseudo, :contenuCommentaire, 0, 
-                                            NOW(), :idChapitre)');
+                                              VALUES (:pseudo, :contenuCommentaire, 0, 
+                                              NOW(), :idChapitre)');
             $result = $req->execute([
                 'idChapitre' => $idChapitre, 
                 'pseudo' => $pseudo, 
@@ -52,18 +57,52 @@ class CommentaireManager
             ]);
             return $result ;
     }
-/*------------------------------------------------------------------------*/
-    public function dashboardCommentaireSignalerAction($pseudo, $contenuCommentaire, $signaler)
+
+    /*------------------------------REQUETE COMMENTAIRE SIGNALER------------------------------------------*/
+    public function findAllCommentaireSignaler()
     {
-        $req = $this->bdd->getBdd()->prepare('SELECT `pseudo`, `contenu_commentaire`, `signaler`
+        $req = $this->bdd->getBdd()->prepare('SELECT *
                                               FROM commentaire 
                                               WHERE signaler = 1');
-    
-        $result=$req->execute([ 
-            'pseudo'             => $pseudo, 
-            'contenu_commentaire' => $contenuCommentaire,
-            'signaler'           => $signaler
-        ]);
+
+        $req->execute();
+        $result = $req->fetchAll();
         return $result;
     }
+
+    public function validerCommentaire($id)
+    {
+        $req = $this->bdd->getBdd()->prepare('UPDATE commentaire SET `signaler` = 0 WHERE id = :id');
+            $result = $req->execute([
+                'id' => $id 
+            ]);
+            return $result ;
+    }
+    public function supprimerCommentaire($id)
+    {
+        $req = $this->bdd->getBdd()->prepare("DELETE FROM `commentaire` WHERE `commentaire`.`id` = :id");
+            $result = $req->execute([
+                'id' => $id 
+            ]);
+            return $result ;
+    }
+
+    public function signalerUnCommentaire($id)
+    {
+        $req = $this->bdd->getBdd()->prepare('UPDATE commentaire SET `signaler` = 1 WHERE id = :id');
+            $result = $req->execute([
+                'id' => $id 
+            ]);
+            return $result ;
+    }
+
+   /* public function AfficherNombreCommentaireSignaler()
+    {
+        $req = $this->bdd->getBdd()->prepare('SELECT COUNT* FROM `commentaire`
+        WHERE`signaler`= 1');
+
+        $req->execute();
+        $result = $req->fetchAll();
+        return $result;
+    }*/
 }

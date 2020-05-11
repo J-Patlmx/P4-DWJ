@@ -15,4 +15,6 @@
 
         <input type="submit" name="connexionadmin" value="Connexion" />
     </form>
+    <footer>
     <?php require_once 'Templates/Frontend/footer.html.php';?>
+    </footer>
