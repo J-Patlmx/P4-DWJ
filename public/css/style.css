@@ -39,11 +39,7 @@ h3
 .actualite{
     border: 1px solid lightcyan;
 }
-.com{
-    display: flex;
-    flex-direction: row;
 
-}
 a
 {
     text-decoration: none;
@@ -288,11 +284,16 @@ section {
 .fa-thumbs-down {
     color: red;
 }
-
-.comSignaler button {
-    justify-content: right;
+#commentairesurchapitre{
+    display:flex;
+    justify-content: space-between;
+    align-content: space-between;
+  
 }
+.element{
+    width: 30%;
 
+}
 .btnValider {
     background-color: #5cbf2a;
     border: 1px solid #18ab29;
@@ -403,12 +404,13 @@ li {
 footer  {
     border-top: 2px solid whitesmoke;
     text-align: center;
+    justify-content: center;
     color: red;
     font-size: 12px;
     bottom: 0;
-    position: fixed;
+    position: relative;
 }
-#datecom{ font-size: 10px;}
+#datestyle{ font-size: 10px;}
 #h1admin{
     background: none;
     text-align: center;
