@@ -22,7 +22,7 @@ function connexionAction($post)
             $error  = 'Mauvais password';
         }
     } else {
-        $page           = [
+        $data          = [
             'title'         => 'P4 JEAN Forteroche - Connexion',
             'page'          => 'connexion',
             'error'         => $error
@@ -66,7 +66,7 @@ function loginAction($post)
                 $error  = 'Mauvais password';
             }
         } else {
-            $page           = [
+            $data          = [
                 'title'         => 'P4 JEAN Forteroche - Connexion',
                 'page'          => 'connexion',
                 'error'         => $error

@@ -1,6 +1,6 @@
 <link rel="stylesheet" href="Public/css/style.css">
 <h1>CONNEXION ADMINISTRATEUR</h1>
-<h2 id="h2forminscription">votre compte administrateur</h2>
+<h2 id="h2formconnexion">votre compte administrateur</h2>
 <div align="center" class="form_connexion">
     <br /><br />
     <img src="public/images/avatar.png" alt="avatar">

@@ -7,6 +7,8 @@
         <a href="index.php?action=logout"><i class="fas fa-sign-out-alt"></i></a>
     <?php } else { ?>
         <a href="index.php?action=login"><i class="fas fa-sign-in-alt"></i></a>
-    <?php } ?>
+    <?php } ?> 
 </div>
 <img id="imgheader" src="public/images/header.png">
+
+<!-- far fa-times-circle -->

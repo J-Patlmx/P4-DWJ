@@ -2,12 +2,23 @@
 require_once 'src/Model/Utilisateur.php';
 require_once 'src/Model/ChapitreManager.php';
 require_once 'src/Model/CommentaireManager.php';
+require_once 'src/View/View.php';
 function dashboardAction()
 {
     if(isset($_SESSION['admin_user']))
     {
+        $adminCommentaireSignaler    = new CommentaireManager();
+        $result = $adminCommentaireSignaler->afficherNombreCommentaireSignaler();
         $user = $_SESSION['admin_user'];
-        include_once __DIR__ . '/../../Templates/Backend/dashboard.html.php';
+        $data = [
+            'title'         => 'P4 JEAN Forteroche - Liste Chapitre',
+            'page'          => 'dashboard',
+            'nbcommentairesignaler' => $result,
+            'user' => $user
+        ];
+        $view = new View();
+        $view->render('Backend', $data);
+       // include_once __DIR__ . '/../../Templates/Backend/dashboard.html.php';
     }
     else 
     {
@@ -60,10 +71,28 @@ function dashboardCommentaireSupprimerAction($id)
     exit;
 }
 
-/*function dashboardAfficherNombreCommentaireSignalerAction()
+
+ function dashboardAddChapitreAction($titre, $contenu)
+ {
+    $addChapitre   = new ChapitreManager();
+    $result = $addChapitre->dashboardAddChapitreAction($titre, $contenu);
+  
+    // header("location:index.php?action=addNewChapitre");
+    // exit;
+    
+ }
+
+function dashboardDeleteChapitreAction()
 {
-    $adminCommentaireSignaler    = new CommentaireManager();
-    $result = $adminCommentaireSignaler->findAllCommentaireSignaler();
-    header("location:index.php?action=adminAfficherNombreCommentaireSignaler");
-    exit;
-}*/
+
+}
+
+function dashboardUpdateChapitreAction()
+{
+
+}
+
+function dashboardPublishChapitreAction()
+{
+
+}

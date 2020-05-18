@@ -25,21 +25,30 @@ class ChapitreManager
         $result = $req->fetch( PDO::FETCH_OBJ);
         return $result;
     }
-    public function add($chapitre)
-    {
-        $req = $this->bdd->getBdd()->prepare('INSERT INTO chapitre SET titre = :titre, contenu = :contenu, publication = :publication, date_creation = :date_creation ');
-        $req->bindValue(':titre',$chapitre->getTitle(), PDO::PARAM_STR);
-        $req->bindValue(':contenu',$chapitre->getContent(), PDO::PARAM_STR);
-        $req->bindValue(':publication',$chapitre->getPublish(), PDO::PARAM_BOOL);
-       
-        $req->bindValue(':date_creation',$chapitre->getCreationDate());
-        $req->execute();
-    }
+    // public function add($chapitre)
+    // {
+    //     $req = $this->bdd->getBdd()->prepare('INSERT INTO chapitre SET titre = :titre, contenu = :contenu, publication = :publication, date_creation = :date_creation ');
+    //     $req->bindValue(':titre',$chapitre->getTitle(), PDO::PARAM_STR);
+    //     $req->bindValue(':contenu',$chapitre->getContent(), PDO::PARAM_STR);
+    //     $req->bindValue(':publication',$chapitre->getPublish(), PDO::PARAM_BOOL);
+    //     $req->bindValue(':date_creation',$chapitre->getCreationDate());
+    //     $req->execute();
+    // }
     public function findAllAdminBillet()
     {
         $req = $this->bdd->getBdd()->query('SELECT id, titre, contenu, publication, DATE_FORMAT(date_creation, \'%d/%m/%Y à %Hh%imin%ss\') AS date_creation_fr FROM chapitre ORDER BY date_creation DESC');
         $resultat= $req->fetchAll();
         return $resultat;
     }
-    
+
+
+
+    public function dashboardAddChapitreAction($titre, $contenu)
+    {
+        $req = $this->bdd->getBdd()->prepare('INSERT INTO `chapitre` (`titre`, `contenu`, `date_creation`) VALUES (:titre, :contenu, CURRENT_TIMESTAMP)');
+        $req->bindValue(':titre', $titre, PDO::PARAM_STR);
+        $req->bindValue(':contenu', $contenu, PDO::PARAM_STR);
+
+        $result=$req->execute();
+    }
 }

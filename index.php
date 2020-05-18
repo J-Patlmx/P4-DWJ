@@ -81,18 +81,43 @@ if (isset($_GET['action'])) {
             dashboardCommentaireSupprimerAction($_GET['id']);
             break;
 
-      /*---------- affichage nombre de Commentaires Signaler dans le dashboard ----------*/
-       /* case 'adminAfficherNombreCommentaireSignaler':
-            var_dump(" Afficher le Nombre de Commentaire Signaler");
-
-            dashboardCommentaireAction();
-            break; */
-            
             /*---------- Gestion des Billets ----------*/
         case 'adminBillet':
             var_dump(" Route admin Billet");
 
             dashboardBilletAction();
+            break;
+/*------------------------------ Create Read Update Delete (crud) ------------------------------*/
+            /*---------- Ajout de Chapitre ----------*/
+
+        case 'addNewChapitre':
+            var_dump(" Route addNewChapitre");
+    
+            dashboardAddChapitreAction($titre, $contenu);
+            break;
+
+            /*---------- Suppression de Chapitre ----------*/
+
+        case 'deletetchapitre':
+            var_dump('route de la suppression de chapitre');
+
+            dashboardDeleteChapitreAction();
+            break;
+
+            /*---------- Modification de Chapitre ----------*/
+
+        case 'updatechapitre':
+            var_dump('route de la modification de chapitre');
+
+            dashboardUpdateChapitreAction();
+            break;
+
+             /*---------- Modification de Chapitre ----------*/
+
+        case 'publishchapitre':
+            var_dump('route de la publication de chapitre');
+
+            dashboardPublishChapitreAction();
             break;
 
 

@@ -21,18 +21,7 @@ class CommentaireManager
         return $resultat;
     }
   
-   
-    // public function add($commentaire)
-    // {
-    //     $req = $this->bdd->getBdd()->prepare('INSERT INTO commentaire 
-    //                                           SET id_chapitre = :id_chapitre,pseudo = :pseudo, contenu_commentaire = :contenu_commentaire, signaler = :signaler, date_commentaire = :date_commentaire ');
-    //     $req->bindValue(':pseudo',$commentaire->getPseudo(), PDO::PARAM_STR);
-    //     $req->bindValue(':id_chapitre', $commentaire->getIdChapitre());
-    //     $req->bindValue(':contenu_commentaire',$commentaire->getCommentaryContent(), PDO::PARAM_STR);
-    //     $req->bindValue(':signaler',$commentaire->getSignaler(), PDO::PARAM_BOOL);
-    //     $req->bindValue(':date_commentaire',$commentaire->getCreationDate());
-    //     $req->execute();
-    // }
+
 /*----------------------------REQUETE RECHERCHE DE TOUT LES COMMENTAIRES Pour la partie admin--------------------------------------------*/
     public function findAllAdminCommentaire($id)
     {
@@ -96,13 +85,14 @@ class CommentaireManager
             return $result ;
     }
 
-   /* public function AfficherNombreCommentaireSignaler()
+   public function afficherNombreCommentaireSignaler()
     {
-        $req = $this->bdd->getBdd()->prepare('SELECT COUNT* FROM `commentaire`
+        $req = $this->bdd->getBdd()->prepare('SELECT COUNT(*) nb 
+        FROM `commentaire`
         WHERE`signaler`= 1');
-
         $req->execute();
-        $result = $req->fetchAll();
-        return $result;
-    }*/
+        $result = $req->fetch();
+        return $result['nb'];
+    
+    }
 }

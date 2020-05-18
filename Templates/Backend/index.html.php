@@ -13,10 +13,6 @@
     </head>
 
     <body>
-      
-        <header>
-            <?php require_once 'Templates/Frontend/header.html.php';?>   
-        </header>
 
         <section>
             <?= $content ?>

@@ -85,6 +85,8 @@ header {
     color: black;
     z-index: 2;
 }
+/* TODO: 
+modifier l emplacement du boton deco sur la page des chapitre  */
 .fa-sign-out-alt{
     position: absolute;
     top: 50px;
@@ -92,7 +94,7 @@ header {
     font-size: 2rem;
     color: black;
     z-index: 2;
-}
+} 
 
 #pro {
     position: absolute;
@@ -105,13 +107,6 @@ header {
     bottom: auto;
     z-index: 2;
     }
-
-img #avatar{
-    position: relative;
-    top: 0;
-    left: 46%;
-    z-index: 1000;
- }
 
 /*----------Section index.html---------*/
 section {
@@ -158,47 +153,14 @@ section {
 }
 
 /*-----------PAGE DE CONNEXION-------------*/
-
-#imgconnexion{
-    position: relative;
-    top: 0;
-    left: 46%;
+#h2formconnexion{
+    text-align: center;
 }
-
-#econnexion input {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    margin: auto;
-    width: 15%;
-}
-
-#econnexion label {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    margin: auto;
+.form_inscription{
     width: 30%;
-    padding: 0.5%;
-    
-}
+    margin: 30%;
+    margin-top: 0;
 
-.btnConnexionCentrage {
-    margin-bottom: 200px;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    margin: auto;
-    width: 15%;
-    border: 1px lavender solid;
-    margin-top:20px; 
-    box-shadow: 2px 2px 2px 2px lightgrey;
-    border-radius: 24px;
-    -webkit-border-radius: 24px;
-    -moz-border-radius: 24px;
-    background-color: whitesmoke;
-    text-decoration: none;
-    color: black;
 }
 
 /*------MENU ADMIN-------*/
@@ -284,15 +246,24 @@ section {
 .fa-thumbs-down {
     color: red;
 }
+/* TODO: arranger le style de ce form */
+#laissetoncommentaire{
+    display: flex;
+
+}
+
 #commentairesurchapitre{
     display:flex;
+    flex-wrap: wrap;
     justify-content: space-between;
     align-content: space-between;
+    padding: 10px;
   
 }
 .element{
-    width: 30%;
-
+    width: 33.33%;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 .btnValider {
     background-color: #5cbf2a;
@@ -308,37 +279,7 @@ section {
     color: red;
 }
 
-/*---------------*/
-.btn {
 
-    border-radius: 50px;
-    display: inline-block;
-    cursor: pointer;
-    color: #ffffff;
-    font-family: Arial;
-    font-size: 15px;
-    padding: 0px 32px;
-    text-decoration: none;
-    text-shadow: 0px 1px 0px black;
-}
-
-.btnValider:hover {
-    background-color: green;
-    border: 1px solid green;
-}
-
-.btnSupprimer:hover {
-    background-color: #b8232d;
-    border: 1px solid #b8232d;
-}
-
-.btn:active {
-    position: relative;
-    top: 1px;
-}
-
-
-/*---------------*/
 /*-------Gestion des billets--------*/
 #testposition {
     display: flex;
@@ -420,9 +361,7 @@ footer  {
 }
 
 /* formulaire dinscription */
-#h2forminscription{
-    text-align: center;
-}
+
 #tableauinscription{
     border: none;
     background-color: rgba(0, 0, 0, 0);
@@ -431,12 +370,7 @@ footer  {
     border: none;
     background-color: rgba(0, 0, 0, 0);
 }
-.form_inscription{
-    width: 30%;
-    margin: 30%;
-    margin-top: 0;
 
-}
 
 #tdlabel{
     width: 20%;

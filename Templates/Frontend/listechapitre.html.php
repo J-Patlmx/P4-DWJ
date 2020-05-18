@@ -1,7 +1,7 @@
 <p>Derniers chapitres du roman :</p>
 <?php
 
-    foreach ($page['listechapitre'] as $donnees) {
+    foreach ($data['listechapitre'] as $donnees) {
         ?>
         <div class="actualite">
             <h3>

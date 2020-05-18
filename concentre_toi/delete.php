@@ -1,6 +1,4 @@
 <?php 
-session_start();//on demarre notre session
-
 // est-ce que l'id existe et n'est pas  vide  dans l url?
 if(isset($_GET['id']) && !empty($_GET['id'])){
     require_once('connex_bdd.php');

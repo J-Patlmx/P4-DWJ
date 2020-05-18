@@ -10,13 +10,13 @@ if ($_POST) {
         $titre = strip_tags($_POST['titre']);
         $contenu = strip_tags($_POST['contenu']);
 
-        $sql = 'INSERT INTO `chapitre` (`titre`, `contenu`, `date_creation`) VALUES (:titre, :contenu, CURRENT_TIMESTAMP)';
+        // $sql = 'INSERT INTO `chapitre` (`titre`, `contenu`, `date_creation`) VALUES (:titre, :contenu, CURRENT_TIMESTAMP)';
 
-        $query = $bdd->prepare($sql);
-        $query->bindValue(':titre', $titre, PDO::PARAM_STR);
-        $query->bindValue(':contenu', $contenu, PDO::PARAM_STR);
+        // $query = $bdd->prepare($sql);
+        // $query->bindValue(':titre', $titre, PDO::PARAM_STR);
+        // $query->bindValue(':contenu', $contenu, PDO::PARAM_STR);
 
-        $query->execute();
+        // $query->execute();
 
         $_SESSION['message'] = "votre chapitre est ajouté!";
 
@@ -67,7 +67,7 @@ if ($_POST) {
                         <input type="text" id="contenu" name="contenu" class="form-control">
                     </div>
 
-                    <button class="btn btn-primary">Publier</button>
+                    <button class="btn btn-primary"><a href="index.php?action=addNewChapitre">Publier</a></button>
                 </form>
             </section>
         </div>
