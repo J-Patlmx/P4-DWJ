@@ -1,10 +1,10 @@
 <?php
 require_once 'Database.php';
 
-   
+
 class ChapitreManager
 {
-   private $bdd;
+    private $bdd;
 
     public function __construct()
     {
@@ -13,16 +13,16 @@ class ChapitreManager
     public function findAll()
     {
         $req = $this->bdd->getBdd()->query('SELECT id, titre, contenu, publication, DATE_FORMAT(date_creation, \'%d/%m/%Y à %Hh%imin%ss\') AS date_creation_fr FROM chapitre ORDER BY date_creation DESC LIMIT 0, 4');
-        $resultat= $req->fetchAll();
+        $resultat = $req->fetchAll();
         return $resultat;
     }
-    
+
     public function getUnique($id)
     {
         $req = $this->bdd->getBdd()->prepare('SELECT id, titre, contenu, publication, date_creation FROM chapitre WHERE id = :id');
         $req->bindValue(':id', $id, PDO::PARAM_INT);
         $req->execute();
-        $result = $req->fetch( PDO::FETCH_OBJ);
+        $result = $req->fetch(PDO::FETCH_OBJ);
         return $result;
     }
     // public function add($chapitre)
@@ -37,7 +37,7 @@ class ChapitreManager
     public function findAllAdminBillet()
     {
         $req = $this->bdd->getBdd()->query('SELECT id, titre, contenu, publication, DATE_FORMAT(date_creation, \'%d/%m/%Y à %Hh%imin%ss\') AS date_creation_fr FROM chapitre ORDER BY date_creation DESC');
-        $resultat= $req->fetchAll();
+        $resultat = $req->fetchAll();
         return $resultat;
     }
 
@@ -48,7 +48,28 @@ class ChapitreManager
         $req = $this->bdd->getBdd()->prepare('INSERT INTO `chapitre` (`titre`, `contenu`, `date_creation`) VALUES (:titre, :contenu, CURRENT_TIMESTAMP)');
         $req->bindValue(':titre', $titre, PDO::PARAM_STR);
         $req->bindValue(':contenu', $contenu, PDO::PARAM_STR);
-
-        $result=$req->execute();
+        $result = $req->execute();
     }
+/*-----------------SUPPRESSION D'UN CHAPITRE PAR SON ID-------------------*/
+/*-----------------je selectionne le CHAPITRE PAR SON ID-------------------*/
+//    public function selectDelChapitreAction($id)
+//     {
+//         //je prepare ma req de recherche de l id du chapitre que je veux supprimer
+//         $req = $this->bdd->getBdd()->prepare('SELECT * FROM chapitre WHERE id= :id');
+//         $result = $req->execute([
+//             'id' => $id 
+//         ]);
+//         $id = $req->fetch();
+     
+//     }
+/*----------------- puis je le SUPPRIME le CHAPITRE PAR SON ID-------------------*/
+        public function deleteChapitreAction($id)
+        {
+            $req = $this->bdd->getBdd()->prepare('DELETE  FROM chapitre WHERE chapitre . id= :id;');
+                $result = $req->execute([
+                    'id' => $id 
+                ]);
+                return $result;
+        }
+
 }

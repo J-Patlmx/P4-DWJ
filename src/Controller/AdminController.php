@@ -5,8 +5,7 @@ require_once 'src/Model/CommentaireManager.php';
 require_once 'src/View/View.php';
 function dashboardAction()
 {
-    if(isset($_SESSION['admin_user']))
-    {
+    if (isset($_SESSION['admin_user'])) {
         $adminCommentaireSignaler    = new CommentaireManager();
         $result = $adminCommentaireSignaler->afficherNombreCommentaireSignaler();
         $user = $_SESSION['admin_user'];
@@ -18,24 +17,19 @@ function dashboardAction()
         ];
         $view = new View();
         $view->render('Backend', $data);
-       // include_once __DIR__ . '/../../Templates/Backend/dashboard.html.php';
-    }
-    else 
-    {
+        // include_once __DIR__ . '/../../Templates/Backend/dashboard.html.php';
+    } else {
         header('location: index.php?action=login');
         exit;
     }
 }
 function dashboardBilletAction()
 {
-    if(isset($_SESSION['admin_user']))
-    {
+    if (isset($_SESSION['admin_user'])) {
         $chapitreManager    = new ChapitreManager();
         $result = $chapitreManager->findAllAdminBillet();
         include_once __DIR__ . '/../../Templates/Backend/adminBillet.html.php';
-    }
-    else 
-    {
+    } else {
         header('location: index.php?action=login');
         exit;
     }
@@ -43,14 +37,11 @@ function dashboardBilletAction()
 /*--------------------------- Liste COMMENTAIRE SIGNALER ----------------------------------------*/
 function dashboardCommentaireAction()
 {
-    if(isset($_SESSION['admin_user']))
-    {
+    if (isset($_SESSION['admin_user'])) {
         $adminCommentaireSignaler    = new CommentaireManager();
         $commentaires = $adminCommentaireSignaler->findAllCommentaireSignaler();
         include_once __DIR__ . '/../../Templates/Backend/adminSignaler.html.php';
-    }
-    else 
-    {
+    } else {
         header('location: index.php?action=dashboard');
         exit;
     }
@@ -72,27 +63,33 @@ function dashboardCommentaireSupprimerAction($id)
 }
 
 
- function dashboardAddChapitreAction($titre, $contenu)
- {
+function dashboardAddChapitreAction($titre, $contenu)
+{
+
     $addChapitre   = new ChapitreManager();
-    $result = $addChapitre->dashboardAddChapitreAction($titre, $contenu);
-  
-    // header("location:index.php?action=addNewChapitre");
-    // exit;
+    $result = $addChapitre->dashboardAddChapitre($titre, $contenu);
+}
+
+function deleteChapitreAction($id)
+{
+    var_dump('nous sommes dans l admincontroller dans la function deleteChapitreAction par id');
+
     
- }
-
-function dashboardDeleteChapitreAction()
-{
-
+    if (isset($_GET['id']) && !empty($_GET['id'])) {
+        $delChapitre   = new ChapitreManager();
+        $delChapitre->deleteChapitre($id);
+    
+   }
+   else
+   {
+       var_dump('ça ne fonctionne pas !!!!! pourquoi ??');
+       die();
+       header('location: index.php?action=adminBillet');
+       exit;
+   }
 }
-
 function dashboardUpdateChapitreAction()
-{
-
-}
+{ }
 
 function dashboardPublishChapitreAction()
-{
-
-}
+{ }
