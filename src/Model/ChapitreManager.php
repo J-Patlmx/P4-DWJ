@@ -25,7 +25,7 @@ class ChapitreManager
         $result = $req->fetch(PDO::FETCH_OBJ);
         return $result;
     }
-    // public function add($chapitre)
+     //public function add($chapitre)
     // {
     //     $req = $this->bdd->getBdd()->prepare('INSERT INTO chapitre SET titre = :titre, contenu = :contenu, publication = :publication, date_creation = :date_creation ');
     //     $req->bindValue(':titre',$chapitre->getTitle(), PDO::PARAM_STR);
@@ -46,24 +46,26 @@ class ChapitreManager
     public function dashboardAddChapitreAction($titre, $contenu)
     {
         $req = $this->bdd->getBdd()->prepare('INSERT INTO `chapitre` (`titre`, `contenu`, `date_creation`) VALUES (:titre, :contenu, CURRENT_TIMESTAMP)');
-        $req->bindValue(':titre', $titre, PDO::PARAM_STR);
-        $req->bindValue(':contenu', $contenu, PDO::PARAM_STR);
-        $result = $req->execute();
+        $result = $req->execute([
+            'titre'   => $titre,
+            'contenu' => $contenu 
+        ]);
+        return $result;
     }
 /*-----------------SUPPRESSION D'UN CHAPITRE PAR SON ID-------------------*/
 /*-----------------je selectionne le CHAPITRE PAR SON ID-------------------*/
-//    public function selectDelChapitreAction($id)
-//     {
-//         //je prepare ma req de recherche de l id du chapitre que je veux supprimer
-//         $req = $this->bdd->getBdd()->prepare('SELECT * FROM chapitre WHERE id= :id');
-//         $result = $req->execute([
-//             'id' => $id 
-//         ]);
-//         $id = $req->fetch();
+     public function Chapitre($id)
+      {
+          //je prepare ma req de recherche de l id du chapitre que je veux supprimer
+          $req = $this->bdd->getBdd()->prepare('SELECT * FROM chapitre WHERE id= :id');
+          $result = $req->execute([
+              'id' => $id 
+          ]);
+          $result = $req->fetch();
      
-//     }
+      }
 /*----------------- puis je le SUPPRIME le CHAPITRE PAR SON ID-------------------*/
-        public function deleteChapitreAction($id)
+        public function deleteChapitre($id)
         {
             $req = $this->bdd->getBdd()->prepare('DELETE  FROM chapitre WHERE chapitre . id= :id;');
                 $result = $req->execute([
@@ -72,4 +74,13 @@ class ChapitreManager
                 return $result;
         }
 
+/*----------------publication d'article---------------*/
+        public function publierChapitre($id)
+        {
+            $req = $this->bdd->getBdd()->prepare('UPDATE chapitre SET `publication` = 1 WHERE id = :id');
+                $result = $req->execute([
+                    'id' => $id 
+                ]);
+                return $result ;
+        }
 }

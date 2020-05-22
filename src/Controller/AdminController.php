@@ -41,7 +41,8 @@ function dashboardCommentaireAction()
         $adminCommentaireSignaler    = new CommentaireManager();
         $commentaires = $adminCommentaireSignaler->findAllCommentaireSignaler();
         include_once __DIR__ . '/../../Templates/Backend/adminSignaler.html.php';
-    } else {
+    } 
+    else {
         header('location: index.php?action=dashboard');
         exit;
     }
@@ -62,6 +63,18 @@ function dashboardCommentaireSupprimerAction($id)
     exit;
 }
 
+/*----------------------chapitre CRUD ---------------------------*/
+ function dashboardChapitreAction($id)
+ {
+     if (isset($_SESSION['admin_user'])) {
+         $adminChapitre    = new ChapitreManager();
+         $chapitre = $adminChapitre->Chapitre($id);
+         include_once __DIR__ . '/../../Templates/Backend/adminBillet.html.php';
+     } else {
+         header('location: index.php?action=adminBillet');
+         exit;
+     }
+ }
 
 function dashboardAddChapitreAction($titre, $contenu)
 {
@@ -72,24 +85,32 @@ function dashboardAddChapitreAction($titre, $contenu)
 
 function deleteChapitreAction($id)
 {
-    var_dump('nous sommes dans l admincontroller dans la function deleteChapitreAction par id');
+    var_dump('nous sommes dans l admin controller dans la function deleteChapitreAction par id');
 
     
     if (isset($_GET['id']) && !empty($_GET['id'])) {
         $delChapitre   = new ChapitreManager();
-        $delChapitre->deleteChapitre($id);
+        $result = $delChapitre->deleteChapitre($id);
     
    }
    else
    {
        var_dump('ça ne fonctionne pas !!!!! pourquoi ??');
-       die();
+      die();
        header('location: index.php?action=adminBillet');
        exit;
    }
 }
+
 function dashboardUpdateChapitreAction()
 { }
 
-function dashboardPublishChapitreAction()
-{ }
+
+function publierChapitreAction($id)
+{
+    $publierUnChapitre = new ChapitreManager();
+    $result = $publierUnChapitre->publierChapitre($id);
+
+    header('location:index.php?action=publishChapitre');
+    exit;
+}

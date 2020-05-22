@@ -114,10 +114,10 @@ if (isset($_GET['action'])) {
 
              /*---------- Modification de Chapitre ----------*/
 
-        case 'publishchapitre':
+        case 'publishChapitre':
             var_dump('route de la publication de chapitre');
 
-            dashboardPublishChapitreAction();
+            dashboardPublishChapitreAction($_GET['id']);
             break;
 
 

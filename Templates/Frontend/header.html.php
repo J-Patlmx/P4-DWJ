@@ -4,7 +4,7 @@
 </div>
 <div>
     <?php if (isset($_SESSION['admin_user'])) { ?>
-        <a href="index.php?action=logout"><i class="fas fa-sign-out-alt"></i></a>
+        <a href="index.php?action=logout"><i class="far fa-times-circle"></i></a>
     <?php } else { ?>
         <a href="index.php?action=login"><i class="fas fa-sign-in-alt"></i></a>
     <?php } ?> 
@@ -12,3 +12,4 @@
 <img id="imgheader" src="public/images/header.png">
 
 <!-- far fa-times-circle -->
+<!-- <i class="far fa-times-circle"></i> -->

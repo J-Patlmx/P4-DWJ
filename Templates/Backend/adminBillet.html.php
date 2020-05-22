@@ -17,7 +17,7 @@
         <h1>Administrer les Billets</h1>
         <div>
             <a href="index.php?action=logout">
-                <i class="fas fa-sign-out-alt"></i>
+                <i class="far fa-times-circle"></i>
             </a>
             <a href="index.php?action=dashboard">Bureau</a>
         </div>
@@ -63,9 +63,9 @@
                                                 <td><?= $chapitre['publication']?></td>
                                                 <td>
                                                     <a href="index.php?action=chapitre&id=<?= $chapitre['id']?>"><i class="fas fa-book-open"></i></a>
-                                                    <a href="index.php?action=updatechapitre<?= $chapitre['id']?>"><i class="far fa-edit"></i></a>
-                                                    <a href="index.php?action=deleteChapitre<?= $Chapitre['id']?>"><i class="far fa-trash-alt"></i></a>
-                                                    <a href="index.php?action=publierchapitre=<?= $chapitre['id']?>"><i class="far fa-check-square"></i></a>
+                                                    <a href="index.php?action=updatechapitre&id<?= $chapitre['id']?>"><i class="far fa-edit"></i></a>
+                                                    <a href="index.php?action=deleteChapitre&id<?= $chapitre['id']?>"><i class="far fa-trash-alt"></i></a>
+                                                    <a href="index.php?action=publishChapitre&id=<?= $chapitre['id']?>"><i class="far fa-check-square"></i></a>
                                                 </td>
                                             </tr>
                                         <?php
