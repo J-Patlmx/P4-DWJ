@@ -79,27 +79,26 @@ function dashboardCommentaireSupprimerAction($id)
 function dashboardAddChapitreAction($titre, $contenu)
 {
 
-    $addChapitre   = new ChapitreManager();
-    $result = $addChapitre->dashboardAddChapitre($titre, $contenu);
+        $addChapitre   = new ChapitreManager();
+        $result = $addChapitre->dashboardAddChapitre($titre, $contenu);
+
 }
 
 function deleteChapitreAction($id)
 {
     var_dump('nous sommes dans l admin controller dans la function deleteChapitreAction par id');
 
-    
-    if (isset($_GET['id']) && !empty($_GET['id'])) {
-        $delChapitre   = new ChapitreManager();
+        $delChapitre = ChapitreManager:: chapitre($id);
         $result = $delChapitre->deleteChapitre($id);
-    
-   }
-   else
-   {
-       var_dump('ça ne fonctionne pas !!!!! pourquoi ??');
-      die();
-       header('location: index.php?action=adminBillet');
+  
+        // if ($success) {
+        //     var_dump('c est supprimer');
+        // } else {
+        //     var_dump('c est pas supprimer');
+        // }
+       header('location: index.php?action=deleteChapitre');
        exit;
-   }
+   
 }
 
 function dashboardUpdateChapitreAction()

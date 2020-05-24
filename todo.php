@@ -1,10 +1,13 @@
-requet sql pour la recuperation
+TODO:
+     resoudre mon probleme de crud 
+            24/05 Toujours mon probleme d'utilisation de mon crud.
+
+    faire de la factorisation du style.css 
+         commencer à separer la partie front du back en css
+
+            Backend.style.css
+            Frontend.style.css
+
+    
 
 
-SELECT COUNT(*) AS commentaireSignale FROM commentaire WHERE signaler='1'
-dashboardAfficherNombreCommentaireSignalerAction();
-
-
-    modifier le style du formulaire pour laisser un commentaire 
-
-    faire afficher au bon endroit le bouton de deco 

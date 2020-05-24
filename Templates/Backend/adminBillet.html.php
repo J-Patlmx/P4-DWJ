@@ -64,7 +64,7 @@
                                                 <td>
                                                     <a href="index.php?action=chapitre&id=<?= $chapitre['id']?>"><i class="fas fa-book-open"></i></a>
                                                     <a href="index.php?action=updatechapitre&id<?= $chapitre['id']?>"><i class="far fa-edit"></i></a>
-                                                    <a href="index.php?action=deleteChapitre&id<?= $chapitre['id']?>"><i class="far fa-trash-alt"></i></a>
+                                                    <a href="index.php?action=deleteChapitre&id=<?= $chapitre['id']?>"><i class="far fa-trash-alt"></i></a>
                                                     <a href="index.php?action=publishChapitre&id=<?= $chapitre['id']?>"><i class="far fa-check-square"></i></a>
                                                 </td>
                                             </tr>
