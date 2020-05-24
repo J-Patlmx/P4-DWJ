@@ -65,13 +65,14 @@ class ChapitreManager
      
       }
 /*----------------- puis je le SUPPRIME le CHAPITRE PAR SON ID-------------------*/
+      
         public function deleteChapitre($id)
         {
-            $req = $this->bdd->getBdd()->prepare('DELETE  FROM chapitre WHERE chapitre . id= :id;');
-                $result = $req->execute([
-                    'id' => $id 
-                ]);
-                return $result;
+            $req = $this->bdd->getBdd()->prepare("DELETE FROM chapitre WHERE chapitre.id = :id");
+            $result = $req->execute([
+                'id' => $id 
+            ]);
+            return $result ;
         }
 
 /*----------------publication d'article---------------*/

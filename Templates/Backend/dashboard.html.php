@@ -15,14 +15,13 @@ if (isset($_SESSION['admin_user'])) {
         Mail = <?= $data['user']->email; ?>
         <br /> 
         <section>
-            <a href="index.php?action=logout"><i class="far fa-times-circle"></i></a>
+            <a href="index.php?action=logout" title="me Deconnecter"><i class="far fa-times-circle"></i></a>
             <?= '<h3 id="question">Que voulez-vous faire ?</h3>'; ?>
             <div id="choix">
                 <a href="index.php?action=adminListeCommentaireSignaler" class="pastille adminButton adminCom" rel=" <?= $data['nbcommentairesignaler']; ?>">Gerer les Commentaires signalés</a>
                 <a href="index.php?action=adminBillet" class="adminButton adminBillet">Administrer les Billets</a>
         </section>
         <br />
-        <a href="index.php?action=logout">Se déconnecter</a>
      
     </div>
 <?php

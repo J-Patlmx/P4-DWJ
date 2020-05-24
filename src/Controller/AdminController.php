@@ -59,9 +59,10 @@ function dashboardCommentaireSupprimerAction($id)
 {
     $adminCommentaireSignaler    = new CommentaireManager();
     $commentaires = $adminCommentaireSignaler->supprimerCommentaire($id);
+    
     header("location:index.php?action=adminListeCommentaireSignaler");
     exit;
-}
+}   
 
 /*----------------------chapitre CRUD ---------------------------*/
  function dashboardChapitreAction($id)
@@ -80,25 +81,18 @@ function dashboardAddChapitreAction($titre, $contenu)
 {
 
         $addChapitre   = new ChapitreManager();
-        $result = $addChapitre->dashboardAddChapitre($titre, $contenu);
-
+        $chapitre = $addChapitre->dashboardAddChapitre($titre, $contenu);
+        header('location: index.php?action=adminBillet');
+        exit;
 }
 
-function deleteChapitreAction($id)
-{
-    var_dump('nous sommes dans l admin controller dans la function deleteChapitreAction par id');
 
-        $delChapitre = ChapitreManager:: chapitre($id);
-        $result = $delChapitre->deleteChapitre($id);
-  
-        // if ($success) {
-        //     var_dump('c est supprimer');
-        // } else {
-        //     var_dump('c est pas supprimer');
-        // }
-       header('location: index.php?action=deleteChapitre');
+function deleteChapitreAction($id)
+{ 
+    $delChapitre    = new ChapitreManager();
+    $chapitre = $delChapitre->deleteChapitre($id);
+        header('location: index.php?action=adminBillet');
        exit;
-   
 }
 
 function dashboardUpdateChapitreAction()
@@ -108,8 +102,8 @@ function dashboardUpdateChapitreAction()
 function publierChapitreAction($id)
 {
     $publierUnChapitre = new ChapitreManager();
-    $result = $publierUnChapitre->publierChapitre($id);
+    $chapitre = $publierUnChapitre->publierChapitre($id);
 
-    header('location:index.php?action=publishChapitre');
+    header('location:index.php?action=adminBillet');
     exit;
 }

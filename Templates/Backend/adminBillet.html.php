@@ -16,7 +16,7 @@
 
         <h1>Administrer les Billets</h1>
         <div>
-            <a href="index.php?action=logout">
+            <a href="index.php?action=logout" title="me Deconnecter">
                 <i class="far fa-times-circle"></i>
             </a>
             <a href="index.php?action=dashboard">Bureau</a>

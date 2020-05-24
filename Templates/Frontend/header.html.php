@@ -4,9 +4,9 @@
 </div>
 <div>
     <?php if (isset($_SESSION['admin_user'])) { ?>
-        <a href="index.php?action=logout"><i class="far fa-times-circle"></i></a>
+        <a href="index.php?action=logout" title="me Deconnecter"><i class="far fa-times-circle"></i></a>
     <?php } else { ?>
-        <a href="index.php?action=login"><i class="fas fa-sign-in-alt"></i></a>
+        <a href="index.php?action=login"title="me connecter"><i class="fas fa-sign-in-alt"></i></a>
     <?php } ?> 
 </div>
 <img id="imgheader" src="public/images/header.png">

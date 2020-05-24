@@ -14,7 +14,7 @@
 <body>
     <h1>Gerer les Commantaires signaler</h1>
     <div>
-        <a href="index.php?action=logout">
+        <a href="index.php?action=logout" title="me Deconnecter">
             <i class="far fa-times-circle"></i>
         </a>
     </div>
