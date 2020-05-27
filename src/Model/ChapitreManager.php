@@ -83,10 +83,12 @@ class ChapitreManager
         public function publierChapitre($id, $publication)
         {
             $req = $this->bdd->getBdd()->prepare('UPDATE `chapitre` SET `publication` = :publication WHERE chapitre.id = :id');
+           
                 $result = $req->execute([
-                    'id' => $id,
-                    'publication' => $publication   
+                    ':id' => $id,
+                    ':publication' => $publication   
                 ]);
+             
                 return $result;
         }
 }

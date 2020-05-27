@@ -32,7 +32,8 @@ function signalerUnCommentaireAction($id)
     $signalerUnCommentaire = new CommentaireManager();
     $result = $signalerUnCommentaire->signalerUnCommentaire($id);
 
-    header('location:index.php?action=chapitre');
-    exit;
+    header('Location: index.php?action=chapitre');
+        exit;
  
 }
+ //TODO: resoudre probleme de la direction quand on signale un commentaire 

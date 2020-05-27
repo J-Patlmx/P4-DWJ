@@ -1,5 +1,10 @@
 <h1>Jean Forteroche !</h1>
-<p><a href="index.php">Retour à l'accueil</a></p>
+<?php if (isset($_SESSION['admin_user'])) { ?>
+        <p><a href="index.php?action=adminBillet" title="retour au bureau">retour au bureau</a></p>
+    <?php } else { ?>
+        <p><a href="index.php" title="retour a l'accueil">Retour à l'accueil</a></p>
+    <?php } ?> 
+
 
 
 <article class="aperçu_chapitre">

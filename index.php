@@ -116,10 +116,16 @@ if (isset($_GET['action'])) {
 
         case 'publierChapitre':
             var_dump('route de la publication de chapitre');
-
-            PublierChapitreAction($_GET['id'], $publication);
+            
+            publierChapitreAction($_GET['id']);
             break;
 
+
+/*---------- 404 page not found ----------*/
+            case '404NotFound':
+            var_dump('route 404');
+            
+            break;
 
         default:
             homePageAction();

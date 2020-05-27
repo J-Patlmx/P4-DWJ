@@ -128,29 +128,12 @@ function dashboardUpdateChapitreAction()
 { }
 
 
-function publierChapitreAction($id,$publication)
+function publierChapitreAction($id)
 {
     $publierUnChapitre = new ChapitreManager();
-    $chapitre = $publierUnChapitre->publierChapitre($id,$publication);
-
-    if ($publierUnChapitre = ($chapitre['publication'] <= 1) ? 1 : 0) {
-        
-        header('location:index.php?action=adminBillet');
-        exit;
-    }
-    elseif ($publierUnChapitre = ($chapitre['publication'] >=0) ? 0: 1) {
-
-         header('location:index.php?action=adminBillet');
-         exit;
-
-        }
-}
-//  function nePasPublierChapitre($id,$publication)
-//  {
-//      $publierUnChapitre = new ChapitreManager();
-//      $chapitre = $publierUnChapitre->nePasPublierChapitre($id,$publication);
-//     if ($publierUnChapitre = ($chapitre['publication'] == 0) ? 1: 0) {
-     
-//     header('location:index.php?action=adminBillet');
-//     exit;
-//     }
+    $chapitre = $publierUnChapitre->getUnique($id);
+   
+   $publierUnChapitre->publierChapitre($id, $chapitre->publication === "1" ? "0" : "1");
+   header('location:index.php?action=adminBillet');
+           exit; 
+ }
