@@ -41,14 +41,17 @@ class ChapitreManager
         return $resultat;
     }
 
+/*-----------------AJOUT D'UN NOUVEAU CHAPITRE -------------------*/
 
 
-    public function dashboardAddChapitreAction($titre, $contenu)
+    public function addChapitre($titre, $contenu)
     {
+        
         $req = $this->bdd->getBdd()->prepare('INSERT INTO `chapitre` (`titre`, `contenu`, `date_creation`) VALUES (:titre, :contenu, CURRENT_TIMESTAMP)');
+       
         $result = $req->execute([
             'titre'   => $titre,
-            'contenu' => $contenu 
+            'contenu' => $contenu,
         ]);
         return $result;
     }
@@ -75,13 +78,15 @@ class ChapitreManager
             return $result ;
         }
 
-/*----------------publication d'article---------------*/
-        public function publierChapitre($id)
+/*-----------------PUBLICATION D'UN CHAPITRE PAR SON ID-------------------*/
+
+        public function publierChapitre($id, $publication)
         {
-            $req = $this->bdd->getBdd()->prepare('UPDATE chapitre SET `publication` = 1 WHERE id = :id');
+            $req = $this->bdd->getBdd()->prepare('UPDATE `chapitre` SET `publication` = :publication WHERE chapitre.id = :id');
                 $result = $req->execute([
-                    'id' => $id 
+                    'id' => $id,
+                    'publication' => $publication   
                 ]);
-                return $result ;
+                return $result;
         }
 }

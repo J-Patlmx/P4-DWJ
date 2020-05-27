@@ -1,26 +1,3 @@
-<?php
-if ($_POST) {
-    if (
-        isset($_POST['titre']) && !empty($_POST['titre'])
-        && isset($_POST['contenu']) && !empty($_POST['contenu'])
-    ) {
-        //on netoie les donees envoyer
-        $titre = strip_tags($_POST['titre']);
-        $contenu = strip_tags($_POST['contenu']);
-
-
-        $_SESSION['message'] = "votre chapitre est ajouté!";
-
-
-        header('location: AdminBillet.php');
-    } else {
-        $_SESSION['erreur'] = " Formulaire incomplet !";
-    }
-}
-
-
-?>
-
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -34,7 +11,6 @@ if ($_POST) {
 </head>
 
 <body>
-
     <header>
 
     </header>
@@ -48,26 +24,24 @@ if ($_POST) {
                 ?>
                 <h1> Ajoutez votre Chapitre !</h1>
 
-                <form method="post">
+                <form method="post" action="index.php?action=addNewChapitre">
                     <div class="form-group">
                         <label for="titre">Titre :</label>
                         <input type="text" id="titre" name="titre" class="form-control">
                     </div>
                     <div class="form-group">
                         <label for="contenu">Contenu :</label>
-                        <input type="text" id="contenu" name="contenu" class="form-control">
+                        <input type="textarea" id="contenu" name="contenu" class="form-control">
                     </div>
 
-                    <button class="btn btn-primary"<?= header("location:index.php?action=addNewChapitre");
-                    exit;
-                    ?>>Publier</a></button>
+                    <input type="submit" class="btn btn-primary" value=" publier ">
                 </form>
             </section>
         </div>
     </main>
 
     <footer>
-                <?php require_once('footer.php'); ?>
+        <?= require_once('footer.php'); ?>
     </footer>
 </body>
 

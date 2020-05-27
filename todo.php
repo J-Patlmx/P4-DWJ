@@ -12,4 +12,16 @@ TODO:
 
     
 
+installer composer 
 
+requette 
+composer req --dev  filp/whoops
+
+
+dans index.php => require_once '../vendor/autoload.php';
+
+
+juste en dessous des requires 
+$whoops = new \Whoops\Run;
+$whoops->pushHandler(new \Whoops\Handler\PrettyPageHandler);
+$whoops->register(); 

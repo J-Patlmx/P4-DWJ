@@ -93,7 +93,7 @@ if (isset($_GET['action'])) {
         case 'addNewChapitre':
             var_dump(" Route addNewChapitre");
     
-            AddChapitreAction($titre, $contenu);
+            addChapitreAction($_POST);
             break;
 
             /*---------- Suppression de Chapitre ----------*/
@@ -114,10 +114,10 @@ if (isset($_GET['action'])) {
 
              /*---------- Modification de Chapitre ----------*/
 
-        case 'publishChapitre':
+        case 'publierChapitre':
             var_dump('route de la publication de chapitre');
 
-            dashboardPublishChapitreAction($_GET['id']);
+            PublierChapitreAction($_GET['id'], $publication);
             break;
 
 

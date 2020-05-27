@@ -1,6 +1,8 @@
 <p>Derniers chapitres du roman :</p>
 <?php
-
+if (isset($_SESSION['admin_user'])){
+    echo ' retour au bureau';
+}
     foreach ($data['listechapitre'] as $donnees) {
         ?>
         <div class="actualite">
@@ -14,7 +16,7 @@
                         echo nl2br(htmlspecialchars($donnees['contenu']));
                         ?>
                 <br />
-                <em><a href="?action=chapitre&id=<?php echo $donnees['id']; ?>">Commentaires</a></em>
+                <em><a href="?action=chapitre&id=<?php echo $donnees['id']; ?>">Lire la suite</a></em>
             </p>
         </div>
 <?php
