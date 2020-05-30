@@ -138,7 +138,7 @@ function updateChapitreAction($post)
                 $id = strip_tags($_GET['id']);
                 $titre = strip_tags($post['titre']);
                 $contenu = strip_tags($post['contenu']);
-                $_SESSION['message'] = "votre chapitre est ajouté!";
+                $_SESSION['message'] = "votre chapitre est modifié!";
 
                 $updateChapitre   = new ChapitreManager();
                 $result = $updateChapitre->updapteChapitre($id, $titre, $contenu);

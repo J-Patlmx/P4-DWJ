@@ -5,7 +5,7 @@ ainsi que la parti publication depublication dun chapitre (la partie estetique f
             27/05  la fonction suppression fonctionne 
             27/05  la fonction delete  fonctionne 
             27/05 la partie estetique de la fonction publier fonctionne
-
+            30/05  la fonction update chapitre fonctionne en partie 
 
 
 
