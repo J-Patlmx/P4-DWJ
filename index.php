@@ -106,10 +106,10 @@ if (isset($_GET['action'])) {
 
             /*---------- Modification de Chapitre ----------*/
 
-        case 'updatechapitre':
+        case 'updateChapitre':
             var_dump('route de la modification de chapitre');
 
-            dashboardUpdateChapitreAction();
+            updateChapitreAction($_POST);
             break;
 
              /*---------- Modification de Chapitre ----------*/

@@ -91,4 +91,17 @@ class ChapitreManager
              
                 return $result;
         }
+
+        public function updapteChapitre($id, $titre, $contenu)
+        {
+            
+            $req = $this->bdd->getBdd()->prepare('UPDATE `chapitre` SET `titre`= :titre, `contenu`= :contenu, `date_creation`= CURRENT_TIMESTAMP WHERE `id` =:id');
+           
+            $result = $req->execute([
+                'id' => $id,
+                'titre'   => $titre,
+                'contenu' => $contenu,
+            ]);
+            return $result;
+        }
 }

@@ -63,7 +63,7 @@
                                 <td><?= $chapitre['publication'] ?></td>
                                 <td>
                                     <a title="lire le chapitre" href="index.php?action=chapitre&id=<?= $chapitre['id'] ?>"><i class="fas fa-book-open"></i></a>
-                                    <a title="modifier le chapitre" href="index.php?action=updatechapitre&id<?= $chapitre['id'] ?>"><i class="far fa-edit"></i></a>
+                                    <a title="modifier le chapitre" href="index.php?action=updateChapitre&id=<?= $chapitre['id'] ?>"><i class="far fa-edit"></i></a>
                                     <a title="supprimer ce chapitre" href="index.php?action=deleteChapitre&id=<?= $chapitre['id'] ?>"><i class="far fa-trash-alt"></i></a>
                                     <a title="publier/ dépublier ce chapitre" href="index.php?action=publierChapitre&id=<?= $chapitre['id'] ?>"><i class="far fa-check-square"></i></a>
                                 </td>

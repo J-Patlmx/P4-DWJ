@@ -82,14 +82,13 @@ function addChapitreAction($post)
 
     if (empty($post)) {
         include_once __DIR__ . '/../../Templates/Backend/addChapitre.html.php';
-    } else {
-       {
-           
+    } else { {
+
             if (
                 isset($post['titre']) && !empty($post['titre'])
                 && isset($post['contenu']) && !empty($post['contenu'])
             ) {
-              
+
                 //on netoie les donees envoyer
                 $titre = strip_tags($post['titre']);
                 $contenu = strip_tags($post['contenu']);
@@ -98,20 +97,19 @@ function addChapitreAction($post)
                 $_SESSION['message'] = "votre chapitre est ajouté!";
 
                 $addChapitre   = new ChapitreManager();
-             
+
                 $result = $addChapitre->addChapitre($titre, $contenu);
                 var_dump($post);
-                var_dump('article creer !'); 
+                var_dump('article creer !');
                 header('location: index.php?action=adminBillet');
                 exit;
             } else {
-               
+
                 $_SESSION['erreur'] = " Formulaire incomplet !";
                 header('location: index.php?action=addNewChapitre');
                 exit;
             }
         }
-     
     }
 }
 
@@ -124,16 +122,47 @@ function deleteChapitreAction($id)
     exit;
 }
 
-function dashboardUpdateChapitreAction()
-{ }
+function updateChapitreAction($post)
+{
 
+    if (empty($post)) {
+        include_once __DIR__ . '/../../Templates/Backend/updateChapitre.html.php';
+    } else { {
+
+            if (isset($_GET['id']) && !empty($_GET['id'])
+                && isset($post['titre']) && !empty($post['titre'])
+                && isset($post['contenu']) && !empty($post['contenu'])
+            ) {
+
+                //on netoie les donees envoyer
+                $id = strip_tags($_GET['id']);
+                $titre = strip_tags($post['titre']);
+                $contenu = strip_tags($post['contenu']);
+                $_SESSION['message'] = "votre chapitre est ajouté!";
+
+                $updateChapitre   = new ChapitreManager();
+                $result = $updateChapitre->updapteChapitre($id, $titre, $contenu);
+
+                var_dump($post);
+                var_dump('article modifier !');
+                header('location: index.php?action=adminBillet');
+                exit;
+            } else {
+
+                $_SESSION['erreur'] = " Formulaire incomplet !";
+                header('location: index.php?action=updateChapitre');
+                exit;
+            }
+        }
+    }
+}
 
 function publierChapitreAction($id)
 {
     $publierUnChapitre = new ChapitreManager();
     $chapitre = $publierUnChapitre->getUnique($id);
-   
-   $publierUnChapitre->publierChapitre($id, $chapitre->publication === "1" ? "0" : "1");
-   header('location:index.php?action=adminBillet');
-           exit; 
- }
+
+    $publierUnChapitre->publierChapitre($id, $chapitre->publication === "1" ? "0" : "1");
+    header('location:index.php?action=adminBillet');
+    exit;
+}
