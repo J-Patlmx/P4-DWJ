@@ -8,32 +8,34 @@ function addCommentaireAction($idChapitre, $pseudo, $contenuCommentaire)
     $result = $commentaireManager->addCommentaireAction($idChapitre, $pseudo, $contenuCommentaire);
   
     if ($result === false) {
-        var_dump("Votre commentaire n'a pas pus être ajouté");
+        $_SESSION['erreur'] = " Commentaire non ajouté !";
+        header('Location: index.php?action=404NotFound');
+        exit; 
     } else {
         header('Location: index.php?action=chapitre&id=' . $idChapitre);
         exit;
     }
 }
 
-function dashboardCommentaireSignalerAction($pseudo, $contenuCommentaire, $signaler)
-{
-    $adminCommentaireSignaler = new CommentaireManager();
-    $result = $adminCommentaireSignaler->dashboardCommentaireSignalerAction($pseudo, $contenuCommentaire, $signaler);
+// function dashboardCommentaireSignalerAction($pseudo, $contenuCommentaire, $signaler)
+// {
+//     $adminCommentaireSignaler = new CommentaireManager();
+//     $result = $adminCommentaireSignaler->dashboardCommentaireSignalerAction($pseudo, $contenuCommentaire, $signaler);
 
-    if ($adminCommentaireSignaler == $result >= 1) {
-        var_dump('commentaire signaler');
-    } else {
-        var_dump('aucun commentaire de signaler');
-    }
-}
+//     if ($adminCommentaireSignaler == $result >= 1) {
+//         var_dump('commentaire signaler');
+//     } else {
+//         var_dump('aucun commentaire de signaler');
+//     }
+// }
 
-function signalerUnCommentaireAction($id)
+function signalerUnCommentaireAction($id, $chapitreid)
 {
     $signalerUnCommentaire = new CommentaireManager();
     $result = $signalerUnCommentaire->signalerUnCommentaire($id);
 
-    header('Location: index.php?action=chapitre');
+    header('Location: index.php?action=chapitre&id='. $chapitreid );
         exit;
- 
+    
 }
- //TODO: resoudre probleme de la direction quand on signale un commentaire 
+

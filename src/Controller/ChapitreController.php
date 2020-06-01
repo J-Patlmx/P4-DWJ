@@ -11,8 +11,9 @@ function homePageAction()
         $data = [
             'title'         => 'P4 JEAN Forteroche - Liste Chapitre',
             'page'          => 'listechapitre',
-            'listechapitre' => $chapitreManager->findAll()
+            'listechapitre' => $chapitreManager->findAllPublished()
         ];
+    
         $view = new View();
         $view->render('Frontend', $data);
   //include_once __DIR__.'/../../Templates/Frontend/index.html.php';
@@ -39,13 +40,14 @@ function chapitreAction($id)
             'chapitre'          => $chapitre,
             'commentaires'          => $commentaires,
         ];
+        
         $view = new View();
         $view->render('Frontend', $data);
         
         //include_once __DIR__.'/../../Templates/Frontend/index.html.php';
     } else
     {
-        header('location:404.php');
+        header('location:Templates/Frontend/404.html.php');
         exit;
     }
    

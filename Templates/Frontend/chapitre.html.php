@@ -46,7 +46,7 @@
         <div class="element"><strong><?php echo htmlspecialchars($commentaire['pseudo']); ?></strong><strong id="datestyle"> le <?php echo $commentaire['date_commentaire']; ?></strong></div>
         <div class="element"><?php echo nl2br(htmlspecialchars($commentaire['contenu_commentaire'])); ?></div>
         <div class="element">
-            <a class="element" href="index.php?action=signalerUnCommentaire&id=<?= $commentaire['id'] ?>"><i class="fas fa-thumbs-down"></i></a>
+            <a class="element" href="index.php?action=signalerUnCommentaire&id=<?= $commentaire['id'] ?>&chapitreid=<?= $data['chapitre']->id ?>"><i class="fas fa-thumbs-down"></i></a>
         </div>
     <?php
     } // Fin de la boucle des commentaires

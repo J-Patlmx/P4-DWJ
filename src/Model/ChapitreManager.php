@@ -10,9 +10,9 @@ class ChapitreManager
     {
         $this->bdd = new Database();
     }
-    public function findAll()
+    public function findAllPublished()
     {
-        $req = $this->bdd->getBdd()->query('SELECT id, titre, contenu, publication, DATE_FORMAT(date_creation, \'%d/%m/%Y à %Hh%imin%ss\') AS date_creation_fr FROM chapitre ORDER BY date_creation DESC LIMIT 0, 4');
+        $req = $this->bdd->getBdd()->query('SELECT id, titre, contenu, publication, DATE_FORMAT(date_creation, \'%d/%m/%Y à %Hh%imin%ss\') AS date_creation_fr FROM chapitre  WHERE publication =1 ORDER BY date_creation DESC LIMIT 0, 4');
         $resultat = $req->fetchAll();
         return $resultat;
     }

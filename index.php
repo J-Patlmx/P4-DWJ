@@ -35,7 +35,7 @@ if (isset($_GET['action'])) {
         case 'signalerUnCommentaire':
             var_dump(" Signaler un commentaire");
 
-            signalerUnCommentaireAction($_GET['id']);
+            signalerUnCommentaireAction($_GET['id'], $_GET['chapitreid']);
             break;
             /*------------------------------------------------------------ PARTIE CONNEXION ------------------------------------------------------------*/
             /*---------- Connexion ----------*/
@@ -133,3 +133,4 @@ if (isset($_GET['action'])) {
 } else {
     homePageAction();
 }
+

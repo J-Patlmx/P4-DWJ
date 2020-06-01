@@ -11,5 +11,3 @@
 </div>
 <img id="imgheader" src="public/images/header.png">
 
-<!-- far fa-times-circle -->
-<!-- <i class="far fa-times-circle"></i> -->

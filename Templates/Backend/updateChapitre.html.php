@@ -25,17 +25,18 @@
                 ?>
                 <h1> Modifier votre Chapitre !</h1>
 
-                <form method="post">
+                <form method="post" action="index.php?action=updateChapitre&id=<?= $chapitre->id ?>">
                     <div class="form-group">
                         <label for="titre">Titre :</label>
-                        <input type="text" id="titre" name="titre" class="form-control" value="<?= $chapitre['titre'] ?>">
+                        <input type="text" id="titre" name="titre" class="form-control" value="<?= $chapitre->titre ?>">
                     </div>
                     <div class="form-group">
                         <label for="contenu">Contenu :</label>
-                        <input type="text" id="contenu" name="contenu" class="form-control" value="<?= $chapitre['contenu'] ?>">
+                        <input type="text" id="contenu" name="contenu" class="form-control" value="<?= $chapitre->contenu ?>">
                     </div>
-                    <input type="hidden" value="<?= $chapitre['id'] ?>" name="id">
-                    <button class="btn btn-primary">Modifier</button>
+                    <input type="hidden" value="<?= $chapitre->id ?>" name="id">
+                    <input type="submit" value="modifier">
+                   <!-- <button class="btn btn-primary">Modifier</button>-->
                 </form>
             </section>
         </div>

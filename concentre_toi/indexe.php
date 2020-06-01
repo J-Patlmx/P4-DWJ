@@ -15,7 +15,7 @@
         );
         require_once('src/Model/CommentaireManager.php');
         $commentaireManager = new CommentaireManager();
-        $commentaires = $commentaireManager->findAll();
+        $commentaires = $commentaireManager->findAllPublished();
         
         die(
             
