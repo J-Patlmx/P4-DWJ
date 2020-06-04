@@ -5,8 +5,8 @@
 <p id="pagenotfound"><strong> Page not found</strong></p>
 
 
-<button type="submit" class="retour btn btn-primary" placeholder="page d'accueil" ><a href="../../index.php?action=homePageAction">Page d'accueil<a></button>
+<button type="submit" class="retourAccueuil" placeholder="page d'accueil" ><a href="../../index.php?action=homePageAction">Page d'accueil<a></button>
 
 <footer>
     <?php require_once 'Templates/Frontend/footer.html.php';?>
-    </footer>
+ </footer>

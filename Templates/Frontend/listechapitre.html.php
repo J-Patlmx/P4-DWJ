@@ -5,7 +5,7 @@ if (isset($_SESSION['admin_user'])){
 }
     foreach ($data['listechapitre'] as $donnees) {
         ?>
-        <div class="actualite">
+        <div class="derniereParution">
             <h3>
                 <?php echo htmlspecialchars($donnees['titre']); ?>
                 <em>le <?php echo $donnees['date_creation_fr']; ?></em>

@@ -62,9 +62,9 @@ if (isset($_POST['connexionadmin'])) //on verifie si le formulaire a bien etait 
             <input type="submit" name="connexionadmin" value="Connexion" />
         </form>
 
-        <p id="racolage"> Pas encore inscrit ?? <br />
+        <!-- <p id="racolage"> Pas encore inscrit ?? <br />
             <a href="inscription.php"> inscrit toi !</a>
-        </p>
+        </p> -->
 
         <?php
         if (isset($erreur)) {

@@ -61,11 +61,9 @@ function dashboardCommentaireSupprimerAction($id)
 {
     $adminCommentaireSignaler    = new CommentaireManager();
     $commentaires = $adminCommentaireSignaler->supprimerCommentaire($id);
-   
+
     header("location:index.php?action=adminListeCommentaireSignaler");
     exit;
-    
-    
 }
 
 /*----------------------chapitre CRUD ---------------------------*/
@@ -75,6 +73,8 @@ function dashboardChapitreAction($id)
         $adminChapitre    = new ChapitreManager();
         $chapitre = $adminChapitre->Chapitre($id);
         include_once __DIR__ . '/../../Templates/Backend/adminBillet.html.php';
+        header('location: index.php?action=login');
+        exit;
     } else {
         header('location: index.php?action=adminBillet');
         exit;
@@ -84,35 +84,34 @@ function dashboardChapitreAction($id)
 
 function addChapitreAction($post)
 {
-
-    if (empty($post)) {
+    if (isset($_SESSION['admin_user']) && (empty($post))) {
         include_once __DIR__ . '/../../Templates/Backend/addChapitre.html.php';
-    } else { {
+        header('location: index.php?action=login');
+        exit;
+    } else {
 
-            if (
-                isset($post['titre']) && !empty($post['titre'])
-                && isset($post['contenu']) && !empty($post['contenu'])
-            ) {
+        if (
+            isset($post['titre']) && !empty($post['titre'])
+            && isset($post['contenu']) && !empty($post['contenu'])
+        ) {
 
-                //on netoie les donees envoyer
-                $titre = strip_tags($post['titre']);
-                $contenu = strip_tags($post['contenu']);
+            //on netoie les donees envoyer
+            $titre = strip_tags($post['titre']);
+            $contenu = strip_tags($post['contenu']);
 
 
-                $_SESSION['message'] = "votre chapitre est ajouté!";
+            $_SESSION['message'] = "votre chapitre est ajouté!";
+            $addChapitre   = new ChapitreManager();
 
-                $addChapitre   = new ChapitreManager();
+            $result = $addChapitre->addChapitre($titre, $contenu);
 
-                $result = $addChapitre->addChapitre($titre, $contenu);
+            header('location: index.php?action=adminBillet');
+            exit;
+        } else {
 
-                header('location: index.php?action=adminBillet');
-                exit;
-            } else {
-
-                $_SESSION['erreur'] = " Formulaire incomplet !";
-                header('location: index.php?action=addNewChapitre');
-                exit;
-            }
+            $_SESSION['erreur'] = " Formulaire incomplet !";
+            header('location: index.php?action=addNewChapitre');
+            exit;
         }
     }
 }
@@ -120,29 +119,33 @@ function addChapitreAction($post)
 
 function deleteChapitreAction($id)
 {
-    $delChapitre    = new ChapitreManager();
-    $chapitre = $delChapitre->deleteChapitre($id);
-    $_SESSION['message'] = "Le chapitre est supprimé !";
-    header('location: index.php?action=adminBillet');
-    exit;
+    if (isset($_SESSION['admin_user'])) {
+        $delChapitre    = new ChapitreManager();
+        $chapitre = $delChapitre->deleteChapitre($id);
+        $_SESSION['message'] = "Le chapitre est supprimé !";
+        header('location: index.php?action=adminBillet');
+        exit;
+    } else {
+        header('location:index.php?action=login');
+        exit;
+    }
 }
 
 function updateChapitreAction($post)
 {
 
-    if (empty($post)) {
+    if (isset($_SESSION['admin_user']) && (empty($post))) {
         $chapitreManager = new ChapitreManager();
-        $chapitre       = $chapitreManager->getUnique($_GET['id']);
-        
+        $chapitre        = $chapitreManager->getUnique($_GET['id']);
         include_once __DIR__ . '/../../Templates/Backend/updateChapitre.html.php';
-    } else { 
-        
+       
+    } else {
+
         if (
             isset($_GET['id']) && !empty($_GET['id'])
             && isset($post['titre']) && !empty($post['titre'])
             && isset($post['contenu']) && !empty($post['contenu'])
         ) {
-
             //on netoie les donees envoyer
             $id = strip_tags($_GET['id']);
             $titre = strip_tags($post['titre']);
@@ -161,19 +164,22 @@ function updateChapitreAction($post)
             header('location: index.php?action=updateChapitre');
             exit;
         }
-    }
+    } 
 }
 
 function publierChapitreAction($id)
 {
-    $publierUnChapitre = new ChapitreManager();
-    $chapitre = $publierUnChapitre->getUnique($id);
+    if (isset($_SESSION['admin_user'])) {
+        $publierUnChapitre = new ChapitreManager();
+        $chapitre = $publierUnChapitre->getUnique($id);
 
-   
-    $publierUnChapitre->publierChapitre($id, $chapitre->publication === "1" ? "0" : "1");
-    
-    $_SESSION['message'] = "Le chapitre est publié !";
-    header('location:index.php?action=adminBillet');
+        $publierUnChapitre->publierChapitre($id, $chapitre->publication === "1" ? "0" : "1");
+
+        $_SESSION['message'] = "Le chapitre est publié !";
+        header('location:index.php?action=adminBillet');
         exit;
-  
+    } else {
+        header('location:index.php?action=404NotFound');
+        exit;
+    }
 }

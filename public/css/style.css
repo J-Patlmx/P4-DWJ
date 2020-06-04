@@ -17,12 +17,13 @@ h3
     font-size:0.9em;
     margin-bottom:0px;
 }
-.aperçu_chapitre p
+
+.aperçuChapitre p
 {
     margin-top:0px;
-   
+
 }
-.aperçu_chapitre
+.aperçuChapitre
 {
   display: inline-block;
   text-align: center;
@@ -32,11 +33,11 @@ h3
   border: 1px grey solid;
   margin-bottom: 1%;
 }
-#commentairetitre{
+#H2Commentaire{
     padding-top: 1%;
     margin-left: 1%;
 }
-.actualite{
+.derniereParution{
     border: 1px solid lightcyan;
 }
 
@@ -57,12 +58,13 @@ header {
     display: flex;
     justify-content: space-between;
     border: 1px  lightblue  inset;
- 
 }
+
 #imgheader{
     max-width: 100%;
 }
-#titreh1{
+
+#H1HeaderBlog{
     position: absolute;
     z-index: 2;
     left: 35%;
@@ -86,16 +88,7 @@ header {
     z-index: 2;
 }
 
-.fa-times-circle{
-    position: absolute;
-    top: 50px;
-    right: 50px;
-    font-size: 2rem;
-    color: black;
-    z-index: 2;
-} 
-
-#pro {
+#metierJFHeader{
     position: absolute;
     color: antiquewhite;
     font-size: 10px;
@@ -107,230 +100,68 @@ header {
     z-index: 2;
     }
 
-/*----------Section index.html---------*/
-section {
-    width: 100%;
-    justify-content: space-between;
 
+/*------- MENU ADMIN------*/
+.fa-user-times{
+    position: absolute;
+    top: 50px;
+    right: 50px;
+    font-size: 2rem;
+    color: black;
+    z-index: 2;
 }
 
+.fa-igloo{
+    position: absolute;
+    top: 90px;
+    right: 50px;
+    font-size: 2rem;
+    color: black;
+    z-index: 2;
+}  
+/*------- FIN MENU ADMIN------*/
 
-
-#titrea {
-    color: red;
-    text-align: center;
-    width: 10%;
-    margin-top: 3rem;
-}
-
-#pa {
-    color: blue;
-    width: 70%;
-}
-
-.e {
-    color: lightgoldenrodyellow;
-    width: 10%;
-    margin-top: 3rem;
-}
-
-.titreBillet {
-    text-align: center;
-
-}
-
-/*-----------NavEntreBillets------------*/
-.navEntreBillet {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-}
-
-.taille {
-    height: auto;
-    width: 300px;
-}
 
 /*-----------PAGE DE CONNEXION-------------*/
 #h2formconnexion{
     text-align: center;
 }
-.form_inscription{
+
+/* .form_inscription{
     width: 30%;
     margin: 30%;
     margin-top: 0;
 
-}
+} */
 
-/*------MENU ADMIN-------*/
-
-
-#question {
-    text-align: center;
-}
-
-#choix {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    margin: 15%;
-
-}
-
-.pastille {
-    position: relative;
-
-}
-
-.pastille[rel]:after {
-    content: attr(rel);
-    position: absolute;
-    background: red;
-    width: 25px;
-    height: 25px;
-    top: -10px;
-    right: 2px;
-    border-radius: 50%;
-    font-size: 1rem;
-}
-
-.adminButton {
-    box-shadow: inset 50px 50px 50px 50px #d6d6d6;
-    background-color: #e0e0e0;
-    border-radius: 10px;
-    border: 2px solid #c2c2c2;
-    display: inline-block;
-    cursor: pointer;
-    color: #030303;
-    font-family: Arial;
-    font-size: 24px;
-    font-weight: bold;
-    font-style: italic;
-    text-decoration: none;
-}
-
-.adminCom {
-    padding: 32px 25px;
-}
-
-.adminBillet {
-    padding: 32px 76px;
-}
 
 /*--------Commentaire Signaler---------*/
-.comSignaler {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    border: 1px solid black;
-    display: flex;
-    font-size: 1rem;
-    padding-top: 6px;
-    padding-bottom: 6px;
-    margin-top: 2px;
-    text-align: center;
-}
 
-.fa-thumbs-up {
-    color: green;
-}
 
 .fa-thumbs-down {
     color: red;
 }
-/* TODO: arranger le style de ce form */
+
 #laissetoncommentaire{
     display: flex;
 
 }
 
-#commentairesurchapitre{
+#commentairesChapitre{
     display:flex;
     flex-wrap: wrap;
     justify-content: space-between;
     align-content: space-between;
     padding: 10px;
-  
+
 }
-.element{
+.elementCommentaireChapitre{
     width: 33.33%;
     margin-top: 10px;
     margin-bottom: 10px;
 }
-.btnValider {
-    background-color: #5cbf2a;
-    border: 1px solid #18ab29;
-}
-
-.btnSupprimer {
-    background-color: red;
-    border: 1px solid #b8232d;
-}
-
-.commentaireSignaler {
-    color: red;
-}
 
 
-/*-------Gestion des billets--------*/
-#testposition {
-    display: flex;
-    justify-content: center;
-    text-indent: 50%;
-    word-spacing: 100px;
-
-}
-
-.fa-plus {
-    color: lightskyblue;
-    margin-left: 20px;
-}
-
-#nouveauBillet {
-    color: lightskyblue;
-}
-
-
-table,
-td {
-    border: 1px solid #333;
-    text-align: center;
-    background-color: whitesmoke;
-    width: 98%;
-    margin: 1%;
-}
-
-.fa-book-open {
-    color: green;
-}
-
-.fa-edit {
-    color: orange;
-}
-
-.fa-trash-alt {
-    color: red;
-}
-
-thead,
-tfoot {
-    background-color: grey;
-    color: black;
-}
-
-
-
-li {
-    justify-content: space-around;
-    border: 1px solid black;
-    display: flex;
-    flex-direction: row;
-    padding-top: 6px;
-    padding-bottom: 6px;
-    margin-top: 2px;
-    text-align: center;
-
-}
 
 /*------PIED DE PAGE-------*/
 
@@ -343,17 +174,14 @@ footer  {
     bottom: 0;
     position: relative;
 }
-#datestyle{ font-size: 10px;}
-#h1admin{
-    background: none;
-    text-align: center;
-    color: royalblue;
-    text-transform: capitalize;
-   
+/*  de la factorisation et de la division back and front.STYLE.CSS */
+
+#datestyle{ 
+    font-size: 10px;
 }
 
 /* formulaire dinscription */
-
+/* 
 #tableauinscription{
     border: none;
     background-color: rgba(0, 0, 0, 0);
@@ -369,55 +197,51 @@ footer  {
     align-content: center;
     background-color: rgba(0, 0, 0, 0);
     text-align: right;
-    
+
 }
 #tdinput{
     width: 20%;
     align-content: center;
     background-color: rgba(0, 0, 0, 0);
     text-align: left;
-    
+
 }
 
 #racolage{
     color: lightslategray;
-}
+} 
 
 .form_connexion{
     display:flex;
     flex-direction: column;
     white-space: nowrap;
-}
-label{
+}*/
+ label{
     display: flex;
     flex-direction: column;
     padding-top: 5px;
-}
+} 
 #password{
     display: flex;
     flex-direction: column;
     margin-bottom: 20px;
 }
-.form_commentaire{
+.formCommentaire{
    position: relative;
    left: 1%;
 }
-#tailleinput{
-    width: 600px;
-    height: 150px;
-}
 
-/*------------*/
+/*------404------*/
 #quatrecentquatre{
   width: 100%;
-    max-height: 90vh;
+  max-height: 90vh;
 }
-.retour{
+.retourAccueuil{
     position: absolute;
     top:250px;
-    
+
 }
-.retour a{
+.retourAccueuil a{
     color: #030303;
 }
 

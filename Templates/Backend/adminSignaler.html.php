@@ -7,18 +7,21 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel=" stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
-    <link rel="stylesheet" href="public/css/style.css">
+    <link rel="stylesheet" href="public/css/Back.style.css">
+       
     <title>Gerer les Commantaires signaler</title>
 </head>
 
 <body>
-    <h1>Gerer les Commantaires signaler</h1>
+<h1>Administrer les Commentaires</h1>
     <div>
-        <a href="index.php?action=logout" title="me Deconnecter">
-            <i class="far fa-times-circle"></i>
-        </a>
+        <a href="index.php?action=logout" title="me Deconnecter"><i class="fas fa-user-times"></i></a>
+       <a href="index.php?action=dashboard" title="retour au bureau"><i class="fas fa-igloo"></i></a>
     </div>
-    <a href="index.php?action=dashboard">Bureau</a>
+    <h1>Gerer les Commantaires signaler</h1>
+    <!--  TODO: gerer lespace avec un margin/padding a la place du h1 -->
+   
+    <!--<a href="index.php?action=dashboard">Bureau</a>-->
     <table>
 
         <thead>
