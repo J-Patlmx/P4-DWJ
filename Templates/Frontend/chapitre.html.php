@@ -1,11 +1,6 @@
 <h1>Jean Forteroche !</h1>
-<?php if (isset($_SESSION['admin_user'])) { ?>
 
-        <p><a href="index.php?action=dashboard" title="retour au bureau"><i class="fas fa-igloo"></i></a></p>
-    <?php } else { ?>
-        <p><a href="index.php" title="retour a l'accueil">Retour à l'accueil</a></p>
-    <?php } ?> 
-
+        <p><a href="index.php?action=adminSignaler" title="retour au bureau">Tous les Chapitres</a></p>
 
 
 <article class="aperçuChapitre">
@@ -37,20 +32,34 @@
     <br />
 </div>
 
-<h2 id="H2Commentaire">Commentaires</h2>
-<form class="formCommentaire" id="newcomment" action="index.php?action=addCommentaire&id=<?= $data['chapitre']->id ?>" method="post">
-    <div id="laissetoncommentaire">
-        <div>
-            <label for="pseudo">Auteur</label>
-            <input type="text" id="pseudo" name="pseudo" />
-        </div>
-        <div>
-            <label for="contenu_commentaire">commentaire</label>
-            <textarea id="contenu_commentaire" name="contenu_commentaire" rows="10" cols="50"></textarea>
-        </div>
-        <div>
-            <input type="submit" />
-        </div>
-    </div>
-</form>
 
+
+<form class="form-horizontal formCommentaire" id="newcomment" action="index.php?action=addCommentaire&id=<?= $data['chapitre']->id ?>" method="post">
+<fieldset>
+<!-- Nom du Formulaire -->
+<legend>Laissez votre commentaire !</legend>
+
+<!-- Text input Pseudo-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="pseudo">Auteur</label>  
+  <div class="col-md-4">
+  <input id="pseudo" name="pseudo" type="text"  class="form-control input-md">
+    
+  </div>
+</div>
+
+<!-- Textarea Contenu Commentaire-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="textarea">Commentaire</label>
+  <div class="col-md-4">                     
+    <textarea class="form-control" id="contenu_commentaire" name="contenu_commentaire"></textarea>
+  </div>
+</div>
+
+<!-- Input Valider -->
+<div>
+    <input id="inputCommentaire" type="submit" />
+</div>
+
+</fieldset>
+</form>

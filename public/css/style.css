@@ -1,5 +1,6 @@
 body {
-    background:  lightslategray url("../images/snowBG.jpg") repeat fixed 0 0;
+    background-color: #d7d7d7;
+    /* background:  lightslategray url("../images/snowBG.jpg") repeat fixed 0 0; */
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 h1, h3
@@ -54,21 +55,22 @@ p {
     padding: 2rem;
 }
 
-header {
+/* header {
     display: flex;
     justify-content: space-between;
-    border: 1px  lightblue  inset;
-}
+   
+}  */
 
-#imgheader{
+/* #imgheader{
     max-width: 100%;
-}
+} */
 
 #H1HeaderBlog{
-    position: absolute;
+    position: relative;
     z-index: 2;
-    left: 35%;
-    right: auto;
+    /* left: 35%;
+    right: auto; */
+    text-align: center;
     top: 6%;
     bottom: auto;
     color: rgba(169, 249, 252, 0.945);
@@ -89,37 +91,111 @@ header {
 }
 
 #metierJFHeader{
-    position: absolute;
+    position: relative;
     color: antiquewhite;
     font-size: 10px;
     font-style: italic;
+    
     left: 36.5%;
     right: auto;
-    top: 14%;
+    top:0;
     bottom: auto;
     z-index: 2;
     }
 
 
 /*------- MENU ADMIN------*/
+#navigationAdmin{
+    width: 50px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    float: right;
+    top: 10%;
+    right: 0;
+    position: fixed;
+  
+}
+#navigationAdmin li {
+    height: 50px;
+   
+    
+  }
+  #navigationAdmin li a {
+    display: block ;
+    text-decoration: none ;
+    padding: 4px 0 ;
+  }
 .fa-user-times{
-    position: absolute;
+    /* position: absolute;
     top: 50px;
-    right: 50px;
+    right: 50px; */
     font-size: 2rem;
     color: black;
     z-index: 2;
 }
 
 .fa-igloo{
-    position: absolute;
+    /* position: absolute;
     top: 90px;
-    right: 50px;
+    right: 50px; */
     font-size: 2rem;
     color: black;
     z-index: 2;
 }  
+.fa-tasks{
+    /* position: absolute;
+    top: 130px;
+    right: 50px; */
+    font-size: 2rem;
+    color: black;
+    z-index: 2; 
+}
+.fa-comment-dots{
+    /* position: absolute;
+    top: 170px;
+    right: 50px; */
+    font-size: 2rem;
+    color: black;
+    z-index: 2; 
+}
+
+.fa-user-times:hover{
+    /* position: absolute;
+    top: 50px;
+    right: 50px;*/
+    font-size: 2rem; 
+    color: red;
+    z-index: 2;
+}
+
+.fa-igloo:hover{
+    /* position: absolute;
+    top: 90px;
+    right: 50px; */
+    font-size: 2rem;
+    color: yellowgreen;
+    z-index: 2;
+}  
+.fa-tasks:hover{
+    /* position: absolute;
+    top: 130px;
+    right: 50px; */
+    font-size: 2rem;
+    color: yellow;
+    z-index: 2; 
+}
+.fa-comment-dots:hover{
+    /* position: absolute;
+    top: 170px;
+    right: 50px; */
+    font-size: 2rem;
+    color: blue;
+    z-index: 2; 
+}
 /*------- FIN MENU ADMIN------*/
+
+
 
 
 /*-----------PAGE DE CONNEXION-------------*/
@@ -263,3 +339,37 @@ footer  {
     text-align: center;
     font-size: 2rem;
 }
+
+
+
+
+
+/* test */
+
+#inputCommentaire {
+	box-shadow:inset 0px 1px 0px 0px #bee2f9;
+	background:linear-gradient(to bottom, #63b8ee 5%, #468ccf 100%);
+	background-color:#63b8ee;
+	border-radius:6px;
+	border:1px solid #3866a3;
+	display:inline-block;
+	cursor:pointer;
+	color:#14396a;
+	font-family:Arial;
+	font-size:15px;
+	font-weight:bold;
+	padding:6px 24px;
+	text-decoration:none;
+    text-shadow:0px 1px 0px #7cacde;
+    margin: 1rem;
+}
+#inputCommentaire:hover {
+	background:linear-gradient(to bottom, #468ccf 5%, #63b8ee 100%);
+	background-color:#468ccf;
+}
+#inputCommentaire:active {
+	position:relative;
+	top:1px;
+}
+
+       

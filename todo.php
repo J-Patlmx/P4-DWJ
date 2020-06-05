@@ -1,6 +1,8 @@
 TODO:
+
+05/06/2020: modification de l esthetique ajout dun menu de navigation admin avec isset admin users pour l affichage selon connecter ou pas
+
 27/05  reste a ajouter tiny mce a mon crud, la fonction edition dun chapitre, 
-ainsi que la parti publication depublication dun chapitre (la partie estetique fonctionne)
 
            
 

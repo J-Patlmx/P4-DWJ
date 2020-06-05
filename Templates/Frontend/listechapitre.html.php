@@ -1,8 +1,9 @@
+
 <p>Derniers chapitres du roman :</p>
 <?php
-if (isset($_SESSION['admin_user'])){
-    echo ' retour au bureau';
-}
+// if (isset($_SESSION['admin_user'])){
+    
+// }
     foreach ($data['listechapitre'] as $donnees) {
         ?>
         <div class="derniereParution">

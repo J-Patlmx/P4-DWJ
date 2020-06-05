@@ -1,27 +1,96 @@
 body{
-   background-color: lightgray;
+   background-color: #d7d7d7;
     /* background:  lightslategray url("../images/snowBG.jpg") repeat fixed 0 0; */
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   
 }
+
 /*------- MENU ADMIN------*/
+#navigationAdmin{
+    width: 50px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    float: right;
+    top: 10%;
+   margin-bottom: 1%;
+}
+#navigationAdmin li {
+    height: 50px;
+
+  }
+  #navigationAdmin li a {
+    display: block ;
+    text-decoration: none ;
+    padding: 4px 0 ;
+  }
 .fa-user-times{
-    position: absolute;
+    /* position: absolute;
     top: 50px;
-    right: 50px;
+    right: 50px; */
     font-size: 2rem;
     color: black;
     z-index: 2;
 }
 
 .fa-igloo{
-    position: absolute;
+    /* position: absolute;
     top: 90px;
-    right: 50px;
+    right: 50px; */
     font-size: 2rem;
     color: black;
     z-index: 2;
 }  
+.fa-tasks{
+    /* position: absolute;
+    top: 130px;
+    right: 50px; */
+    font-size: 2rem;
+    color: black;
+    z-index: 2; 
+}
+.fa-comment-dots{
+    /* position: absolute;
+    top: 170px;
+    right: 50px; */
+    font-size: 2rem;
+    color: black;
+    z-index: 2; 
+}
+
+.fa-user-times:hover{
+    /* position: absolute;
+    top: 50px;
+    right: 50px;*/
+    font-size: 2rem; 
+    color: red;
+    z-index: 2;
+}
+
+.fa-igloo:hover{
+    /* position: absolute;
+    top: 90px;
+    right: 50px; */
+    font-size: 2rem;
+    color: yellowgreen;
+    z-index: 2;
+}  
+.fa-tasks:hover{
+    /* position: absolute;
+    top: 130px;
+    right: 50px; */
+    font-size: 2rem;
+    color: yellow;
+    z-index: 2; 
+}
+.fa-comment-dots:hover{
+    /* position: absolute;
+    top: 170px;
+    right: 50px; */
+    font-size: 2rem;
+    color: blue;
+    z-index: 2; 
+}
 /*------- FIN MENU ADMIN------*/
 
 /*------MENU ADMIN-------*/
@@ -50,17 +119,15 @@ body{
     background: red;
     width: 25px;
     height: 25px;
-    top: -10px;
-    right: 2px;
+    top: 0px;
+    right: 0;
     border-radius: 50%;
     font-size: 1rem;
 }
 
 .adminButton {
     box-shadow: inset 50px 50px 50px 50px #d6d6d6;
-    background-color: #e0e0e0;
     border-radius: 10px;
-    border: 2px solid #c2c2c2;
     display: inline-block;
     cursor: pointer;
     color: #030303;
@@ -69,7 +136,19 @@ body{
     font-weight: bold;
     font-style: italic;
     text-decoration: none;
+    border-radius: 50px;
+    background: #d7d7d7;
+    box-shadow:  20px 20px 55px #b7b7b7, -20px -20px 55px #f7f7f7;
 }
+.link { 
+    color: rgba(63, 174, 211, 0.981); 
+    
+} 
+.link:hover { 
+    color: grey; 
+    text-decoration: none;
+    
+} 
 
 .adminCom {
     padding: 32px 25px;

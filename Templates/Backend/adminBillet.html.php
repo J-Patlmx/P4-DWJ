@@ -14,10 +14,15 @@
 <body>
 
     <h1>Administrer les Billets</h1>
-    <div>
-        <a href="index.php?action=logout" title="me Deconnecter"><i class="fas fa-user-times"></i></a>
-       <a href="index.php?action=dashboard" title="retour au bureau"><i class="fas fa-igloo"></i></a>
-    </div>
+    
+    <ul id="navigationAdmin">
+    <li><a href="index.php?action=logout" title="me Deconnecter"><i class="fas fa-user-times"></i></a></li>
+    <li><a href="index.php?action=dashboard" title="retour au bureau"><i class="fas fa-igloo"></i></a></li>
+    <li><a href="index.php?action=adminBillet" title="gestion des chapitres"><i class="fas fa-tasks"></i></a></li>
+    <li><a href="index.php?action=adminListeCommentaireSignaler" title="gestion les commentaires"><i class="fas fa-comment-dots"></i></a></li>
+    <!-- <li><a href="#" title="aller à la section 5">item5</a></li> -->
+</ul>
+ 
 
     <h1> Gerer les chapitres</h1>
     <!--  TODO: gerer lespace avec un margin/padding a la place du h1 -->
